@@ -21,6 +21,7 @@ class CreateMunicipiosTable extends Migration
             $table->string('nombre',50)
                 ->dafault('')
                 ->comment('Nombre del municipio');
+            $table->softDeletes();
             $table->timestamps();
 
             //Foraneas

@@ -19,6 +19,7 @@ class CreateProgramasTable extends Migration
                 ->dafault('')
                 ->comment('Nombre del programa');
             $table->boolean('activo')->default(1);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

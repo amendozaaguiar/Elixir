@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User_Detail extends Model
 {
+    //Eliminacion logica
+    use SoftDeletes;
+    
     protected $table = 'users_detail';
 
     protected $fillable = [

@@ -46,7 +46,7 @@ class CreateAplicantesConvocatoriasTable extends Migration
 
             $table->unsignedInteger('estado_evalucion_id')
                 ->comment('Estado en que se encuentra la convocatoria');
-
+            $table->softDeletes();
             $table->timestamps();
 
             //Foraneas

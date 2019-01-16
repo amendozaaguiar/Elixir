@@ -17,6 +17,7 @@ class CreateEstadosEvaluacionTable extends Migration
             $table->increments('id');
             $table->string('descripcion',25)
                 ->comment('Descripcion del estado de la evaluacion de los postulantes');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

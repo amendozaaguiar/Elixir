@@ -57,7 +57,7 @@ class CreateEvaluacionesConvocatoriasTable extends Migration
             
             $table->unsignedDecimal('jurado_2', 3, 2)
                 ->comment('calificacion jurado 2');
-            
+            $table->softDeletes(); 
             $table->timestamps();
 
             //Foraneas

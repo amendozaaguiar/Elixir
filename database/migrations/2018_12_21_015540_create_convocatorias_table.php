@@ -34,7 +34,7 @@ class CreateConvocatoriasTable extends Migration
                 ->comment('Requisitos de la convocatoria');
             
             $table->boolean('activa')->default(1);    
-            
+            $table->softDeletes();
             $table->timestamps();
 
             //Foraneas

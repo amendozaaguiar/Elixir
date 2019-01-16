@@ -19,6 +19,7 @@ class CreateDepartamentosTable extends Migration
             $table->string('nombre',25)
                 ->dafault('')
                 ->comment('Nombre del departamento');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

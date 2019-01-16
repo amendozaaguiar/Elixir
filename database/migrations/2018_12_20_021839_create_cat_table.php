@@ -30,7 +30,9 @@ class CreateCatTable extends Migration
             $table->unsignedInteger('municipio_id')
                 ->comment('Codigo del departamento al que pertenece');
             
-            $table->boolean('activo')->default(1);
+            $table->boolean('activo')
+                ->default(1);
+            $table->softDeletes();
             $table->timestamps();
 
             //Foarenas

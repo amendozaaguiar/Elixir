@@ -43,7 +43,7 @@ class CreateUserDetailTable extends Migration
             $table->string('segundo_apellido',25)
                 ->comment('segundo Apellido')
                 ->nullable();
-
+            $table->softDeletes();
             $table->timestamps();
 
             //Llaves foraneas

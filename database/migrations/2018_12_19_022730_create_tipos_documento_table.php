@@ -17,6 +17,7 @@ class CreateTiposDocumentoTable extends Migration
             $table->increments('id');
             $table->string('descripcion',50);
             $table->boolean('activo')->default(1);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

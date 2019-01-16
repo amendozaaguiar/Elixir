@@ -25,7 +25,7 @@ class CreateCursosTable extends Migration
                 ->comment('Nombre del curso');
             
             $table->boolean('activo')->default(1);
-            
+            $table->softDeletes();
             $table->timestamps();
 
             //Foraneas
