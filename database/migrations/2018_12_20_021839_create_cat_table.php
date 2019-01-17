@@ -18,10 +18,10 @@ class CreateCatTable extends Migration
             $table->string('nombre',50)
                 ->dafault('')
                 ->comment('Nombre del CAT');
-            $table->string('direccion')
+            $table->text('direccion')
                 ->dafault('')
                 ->comment('Direccion del CAT');
-            $table->string('email')
+            $table->string('email',50)
                 ->dafault('')
                 ->comment('email contacto del CAT');
             $table->unsignedInteger('departamento_id')

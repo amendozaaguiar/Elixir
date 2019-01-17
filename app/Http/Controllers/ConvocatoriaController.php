@@ -50,6 +50,7 @@ class ConvocatoriaController extends Controller
             'curso_id' => $request->curso_id,
             'perfil' => $request->perfil,
             'requisitos' => $request->requisitos,
+            'activa' => $request->activa,
         ]);
         return redirect()->route('convocatorias.edit', $convocatoria->id);
     }
@@ -75,12 +76,14 @@ class ConvocatoriaController extends Controller
     public function edit($id)
     {
         $convocatoria = Convocatorias::find($id);
-        $cat = Cat::where('activo', 1)->get()->pluck('nombre', 'id');
+        
+        $cat = Cat::where('activo', 1)->get();
         $programas = Programas::where('activo', 1)->get();
-        $programa_id = $programas->first()->id;
-        $programas= $programas->pluck('nombre', 'id');
-        $cursos = Cursos::where(['activo' => 1,'programa_id' => $programa_id])->get()->pluck('nombre', 'id');
+        $cursos = Cursos::where(['activo' => 1,'programa_id' => $convocatoria->programa_id])->get();
 
+        $cat = $cat->pluck('nombre', 'id');
+        $programas = $programas->pluck('nombre', 'id');
+        $cursos = $cursos->pluck('nombre', 'id');
         return view('convocatorias.edit',compact('convocatoria','cat','programas','cursos'));
     }
 
@@ -99,6 +102,7 @@ class ConvocatoriaController extends Controller
             $convocatoria->programa_id = $request->programa_id;
             $convocatoria->perfil = $request->perfil;
             $convocatoria->requisitos = $request->requisitos;
+            $convocatoria->activa = $request->activa;
         $convocatoria->save();
 
         return redirect()->route('convocatorias.edit', $convocatoria->id);

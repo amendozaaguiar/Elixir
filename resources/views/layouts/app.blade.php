@@ -27,12 +27,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                        @can('cat.index')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('cats.index') }}">CAT</a>
+                        </li>
+                        @endcan
+
                         @can('convocatorias.index')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('convocatorias.index') }}">Convocatorias</a>
                         </li>
                         @endcan
-
 
                         @can('users.index')
                         <li class="nav-item">

@@ -20,4 +20,12 @@ class Cat extends Model
         'municipio_id',
         'activo'
     ];
+
+    function departamento(){
+        return $this->hasOne(Departamentos::class, 'id', 'departamento_id');
+    }
+
+    function municipio(){
+        return $this->hasOne(Municipios::class, 'id', 'municipio_id');
+    }
 }

@@ -112,5 +112,35 @@ Route::middleware(['auth'])->group(function () {
 	//Ruta para consultar cursos dependiendo del programa
 	Route::get('cursos/todos/programa/{id}', 'CursoController@getCursos')->name('cursos.getCursos');
 
+
+
+	//CAT
+	Route::get('cats', 'CatController@index')->name('cats.index')
+		->middleware('permission:cat.index');
+
+	Route::get('cats/create', 'CatController@create')->name('cats.create')
+		->middleware('permission:cat.create');
+
+	Route::post('cats/store', 'CatController@store')->name('cats.store')
+		->middleware('permission:cat.create');
+
+	Route::get('cats/{cat}', 'CatController@show')->name('cats.show')
+		->middleware('permission:cat.show');
+
+	Route::get('cats/{cat}/edit', 'CatController@edit')->name('cats.edit')
+		->middleware('permission:cat.edit');	
+
+	Route::put('cats/{cat}/', 'CatController@update')->name('cats.update')
+		->middleware('permission:cat.edit');	
+
+	Route::delete('cats/{cat}', 'CatController@destroy')->name('cats.destroy')
+		->middleware('permission:cat.destroy');
+
+
+
+
+	//Ruta para consultar municipios dependiendo del departamento
+	Route::get('municipios/todos/departamento/{id}', 'MunicipioController@getMunicipios')->name('municipios.getMunicipios');
+
 	
 });

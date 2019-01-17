@@ -109,32 +109,32 @@ class PermissionsTableSeeder extends Seeder
 
         /**CAT*/
         Permission::create([
-            'name'          => 'Navegar convocatorias',
-            'slug'          => 'cat.index',
-            'description'   => 'Lista y navega todos los cat del sistema',
+            'name'          => 'Navegar CAT',
+            'slug'          => 'cats.index',
+            'description'   => 'Lista y navega todos los CAT del sistema',
         ]);
 
         Permission::create([
-            'name'          => 'Ver detalle de un rol',
-            'slug'          => 'cat.show',
+            'name'          => 'Ver detalle de un CAT',
+            'slug'          => 'cats.show',
             'description'   => 'Ve en detalle cada rol del sistema',            
         ]);
         
         Permission::create([
-            'name'          => 'Creación de cat',
-            'slug'          => 'cat.create',
-            'description'   => 'Podría crear nuevos cat en el sistema',
+            'name'          => 'Creación de CAT',
+            'slug'          => 'cats.create',
+            'description'   => 'Podría crear nuevos CAT en el sistema',
         ]);
         
         Permission::create([
-            'name'          => 'Edición de cat',
-            'slug'          => 'cat.edit',
+            'name'          => 'Edición de CAT',
+            'slug'          => 'cats.edit',
             'description'   => 'Podría editar cualquier dato de un rol del sistema',
         ]);
         
         Permission::create([
-            'name'          => 'Eliminar cat',
-            'slug'          => 'cat.destroy',
+            'name'          => 'Eliminar CAT',
+            'slug'          => 'cats.destroy',
             'description'   => 'Podría eliminar cualquier rol del sistema',      
         ]);
     }

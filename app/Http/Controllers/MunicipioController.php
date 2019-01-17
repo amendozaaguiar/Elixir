@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cursos;
+use App\Municipios;
 
-class CursoController extends Controller
+class MunicipioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -83,15 +83,9 @@ class CursoController extends Controller
         //
     }
 
-    /**
-     * Muestra los Cursos de acuerdo al programa enviado
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function getCursos($id)
+    public function getMunicipios($id)
     {
-        $cursos =  Cursos::where('programa_id', $id)->pluck('nombre', 'id');
-        return json_encode($cursos);
+        $municipios = Municipios::where('departamento_id', $id)->pluck('nombre', 'id');
+        return json_encode($municipios);
     }
 }

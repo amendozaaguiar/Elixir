@@ -23,7 +23,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			{{ Form::label('perfil', 'Perfil') }}
-			{{ Form::textarea('perfil', null, ['class' => 'form-control']) }}
+			{{ Form::textarea('perfil', null, ['class' => 'form-control', 'id' => 'perfil']) }}
 		</div>
 	</div>
 </div>
@@ -31,7 +31,13 @@
 	<div class="row">
 		<div class="col-md-12">
 			{{ Form::label('requisitos', 'Requisitos') }}
-			{{ Form::textarea('requisitos', null, ['class' => 'form-control']) }}
+			{{ Form::textarea('requisitos', null, ['class' => 'form-control', 'id' => 'requisitos']) }}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+			{{ Form::label('activa', 'Activa')}}
+			{{ Form::select('activa', [1=>'Si', 0=>'Terminada'], null,['class' => 'form-control', 'id' => 'activa']) }}
 		</div>
 	</div>
 </div>
