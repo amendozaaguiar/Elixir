@@ -15,7 +15,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-light bg-danger">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name') }}
@@ -30,6 +30,18 @@
                         @can('cat.index')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('cats.index') }}">CAT</a>
+                        </li>
+                        @endcan
+
+                        @can('programas.index')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('programas.index') }}">Programas</a>
+                        </li>
+                        @endcan
+
+                        @can('cursos.index')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('cursos.index') }}">Cursos</a>
                         </li>
                         @endcan
 

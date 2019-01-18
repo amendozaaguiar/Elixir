@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Cursos;
+use App\Programas;
 
 class CursoController extends Controller
 {
@@ -14,7 +15,8 @@ class CursoController extends Controller
      */
     public function index()
     {
-        //
+        $cursos = Cursos::with('programa')->paginate(10);
+        return view('cursos.index', compact('cursos'));
     }
 
     /**
@@ -24,7 +26,9 @@ class CursoController extends Controller
      */
     public function create()
     {
-        //
+        $programas = Programas::where('activo', 1)->get();
+        $programas= $programas->pluck('nombre', 'id');
+        return view('cursos.create', compact('programas'));
     }
 
     /**
@@ -35,7 +39,12 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $curso = Cursos::create([
+            'programa_id' => $request->programa_id,
+            'nombre' => $request->nombre,
+            'activo' => $request->activo,
+        ]);
+        return redirect()->route('cursos.edit', $curso->id);
     }
 
     /**
@@ -46,7 +55,8 @@ class CursoController extends Controller
      */
     public function show($id)
     {
-        //
+        $curso = Cursos::with('programa')->find($id);
+        return view('cursos.show',compact('curso'));
     }
 
     /**
@@ -57,7 +67,10 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $curso = Cursos::find($id);
+        $programas = Programas::where('activo', 1)->get();
+        $programas= $programas->pluck('nombre', 'id');
+        return view('cursos.edit',compact('curso','programas'));
     }
 
     /**
@@ -69,7 +82,13 @@ class CursoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $curso = Cursos::find($id);
+            $curso->programa_id = $request->programa_id;
+            $curso->nombre = $request->nombre;
+            $curso->activo = $request->activo;
+        $curso->save();
+
+        return redirect()->route('cursos.edit', $curso->id);
     }
 
     /**
@@ -80,7 +99,9 @@ class CursoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $curso = Cursos::find($id);
+        $curso->delete();
+        return back();
     }
 
     /**

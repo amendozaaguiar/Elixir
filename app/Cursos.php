@@ -21,6 +21,6 @@ class Cursos extends Model
 
     public function programa()
     {
-        return $this->belongsTo(Programas::class, 'id', 'programa_id');
+        return $this->hasOne(Programas::class, 'id', 'programa_id');
     }
 }

@@ -137,6 +137,49 @@ Route::middleware(['auth'])->group(function () {
 		->middleware('permission:cat.destroy');
 
 
+	//programas
+	Route::get('programas', 'ProgramaController@index')->name('programas.index')
+		->middleware('permission:programas.index');
+
+	Route::get('programas/create', 'ProgramaController@create')->name('programas.create')
+		->middleware('permission:programas.create');
+
+	Route::post('programas/store', 'ProgramaController@store')->name('programas.store')
+		->middleware('permission:programas.create');
+
+	Route::get('programas/{programa}', 'ProgramaController@show')->name('programas.show')
+		->middleware('permission:programas.show');
+
+	Route::get('programas/{programa}/edit', 'ProgramaController@edit')->name('programas.edit')
+		->middleware('permission:programas.edit');	
+
+	Route::put('programas/{programa}/', 'ProgramaController@update')->name('programas.update')
+		->middleware('permission:programas.edit');	
+
+	Route::delete('programas/{programa}', 'ProgramaController@destroy')->name('programas.destroy')
+		->middleware('permission:programas.destroy');
+
+	//cursos
+	Route::get('cursos', 'CursoController@index')->name('cursos.index')
+		->middleware('permission:cursos.index');
+
+	Route::get('cursos/create', 'CursoController@create')->name('cursos.create')
+		->middleware('permission:cursos.create');
+
+	Route::post('cursos/store', 'CursoController@store')->name('cursos.store')
+		->middleware('permission:cursos.create');
+
+	Route::get('cursos/{curso}', 'CursoController@show')->name('cursos.show')
+		->middleware('permission:cursos.show');
+
+	Route::get('cursos/{curso}/edit', 'CursoController@edit')->name('cursos.edit')
+		->middleware('permission:cursos.edit');	
+
+	Route::put('cursos/{curso}/', 'CursoController@update')->name('cursos.update')
+		->middleware('permission:cursos.edit');	
+
+	Route::delete('cursos/{curso}', 'CursoController@destroy')->name('cursos.destroy')
+		->middleware('permission:cursos.destroy');
 
 
 	//Ruta para consultar municipios dependiendo del departamento

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Programas;
 
 class ProgramaController extends Controller
 {
@@ -13,7 +14,8 @@ class ProgramaController extends Controller
      */
     public function index()
     {
-        //
+        $programas = Programas::paginate(10);
+        return view('programas.index', compact('programas'));
     }
 
     /**
@@ -23,7 +25,7 @@ class ProgramaController extends Controller
      */
     public function create()
     {
-        //
+        return view('programas.create');
     }
 
     /**
@@ -34,7 +36,11 @@ class ProgramaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $programa = Programas::create([
+            'nombre' => $request->nombre,
+            'activo' => $request->activo,
+        ]);
+        return redirect()->route('programas.edit', $programa->id);
     }
 
     /**
@@ -45,7 +51,8 @@ class ProgramaController extends Controller
      */
     public function show($id)
     {
-        //
+        $programa = Programas::find($id);
+        return view('programas.show',compact('programa'));
     }
 
     /**
@@ -56,7 +63,8 @@ class ProgramaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $programa = Programas::find($id);
+        return view('programas.edit',compact('programa'));
     }
 
     /**
@@ -68,7 +76,12 @@ class ProgramaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $programa = Programas::find($id);
+            $programa->nombre = $request->nombre;
+            $programa->activo = $request->activo;
+        $programa->save();
+
+        return redirect()->route('programas.edit', $programa->id);
     }
 
     /**
@@ -79,6 +92,8 @@ class ProgramaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $programa = Programas::find($id);
+        $programa->delete();
+        return back();
     }
 }

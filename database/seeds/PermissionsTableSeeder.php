@@ -43,8 +43,6 @@ class PermissionsTableSeeder extends Seeder
             'description'   => 'Podría eliminar cualquier usuario del sistema',      
         ]);
 
-
-
         /**ROLES*/
         Permission::create([
             'name'          => 'Navegar roles',
@@ -84,27 +82,27 @@ class PermissionsTableSeeder extends Seeder
         ]);
 
         Permission::create([
-            'name'          => 'Ver detalle de un rol',
+            'name'          => 'Ver detalle de una convocatoria',
             'slug'          => 'convocatorias.show',
-            'description'   => 'Ve en detalle cada rol del sistema',            
+            'description'   => 'Ve en detalle cada convocatoria del sistema',            
         ]);
         
         Permission::create([
             'name'          => 'Creación de convocatorias',
             'slug'          => 'convocatorias.create',
-            'description'   => 'Podría crear nuevos convocatorias en el sistema',
+            'description'   => 'Podría crear nuevas convocatorias en el sistema',
         ]);
         
         Permission::create([
             'name'          => 'Edición de convocatorias',
             'slug'          => 'convocatorias.edit',
-            'description'   => 'Podría editar cualquier dato de un rol del sistema',
+            'description'   => 'Podría editar cualquier dato de una convocatoria del sistema',
         ]);
         
         Permission::create([
             'name'          => 'Eliminar convocatorias',
             'slug'          => 'convocatorias.destroy',
-            'description'   => 'Podría eliminar cualquier rol del sistema',      
+            'description'   => 'Podría eliminar cualquier convocatoria del sistema',      
         ]);
 
         /**CAT*/
@@ -117,7 +115,7 @@ class PermissionsTableSeeder extends Seeder
         Permission::create([
             'name'          => 'Ver detalle de un CAT',
             'slug'          => 'cats.show',
-            'description'   => 'Ve en detalle cada rol del sistema',            
+            'description'   => 'Ve en detalle cada CAT del sistema',            
         ]);
         
         Permission::create([
@@ -129,13 +127,77 @@ class PermissionsTableSeeder extends Seeder
         Permission::create([
             'name'          => 'Edición de CAT',
             'slug'          => 'cats.edit',
-            'description'   => 'Podría editar cualquier dato de un rol del sistema',
+            'description'   => 'Podría editar cualquier dato de un CAT del sistema',
         ]);
         
         Permission::create([
             'name'          => 'Eliminar CAT',
             'slug'          => 'cats.destroy',
-            'description'   => 'Podría eliminar cualquier rol del sistema',      
+            'description'   => 'Podría eliminar cualquier CAT del sistema',      
+        ]);
+
+
+        /**PROGRAMAS*/
+        Permission::create([
+            'name'          => 'Navegar programas',
+            'slug'          => 'programas.index',
+            'description'   => 'Lista y navega todos los programas del sistema',
+        ]);
+
+        Permission::create([
+            'name'          => 'Ver detalle de un programa',
+            'slug'          => 'programas.show',
+            'description'   => 'Ve en detalle cada programa del sistema',            
+        ]);
+        
+        Permission::create([
+            'name'          => 'Creación de programas',
+            'slug'          => 'programas.create',
+            'description'   => 'Podría crear nuevos programas en el sistema',
+        ]);
+        
+        Permission::create([
+            'name'          => 'Edición de programas',
+            'slug'          => 'programas.edit',
+            'description'   => 'Podría editar cualquier dato de un programa del sistema',
+        ]);
+        
+        Permission::create([
+            'name'          => 'Eliminar programas',
+            'slug'          => 'programas.destroy',
+            'description'   => 'Podría eliminar cualquier programa del sistema',      
+        ]);
+
+
+        /**CURSOS*/
+        Permission::create([
+            'name'          => 'Navegar cursos',
+            'slug'          => 'cursos.index',
+            'description'   => 'Lista y navega todos los cursos del sistema',
+        ]);
+
+        Permission::create([
+            'name'          => 'Ver detalle de un curso',
+            'slug'          => 'cursos.show',
+            'description'   => 'Ve en detalle cada curso del sistema',            
+        ]);
+        
+        Permission::create([
+            'name'          => 'Creación de cursos',
+            'slug'          => 'cursos.create',
+            'description'   => 'Podría crear nuevos cursos en el sistema',
+        ]);
+        
+        Permission::create([
+            'name'          => 'Edición de cursos',
+            'slug'          => 'cursos.edit',
+            'description'   => 'Podría editar cualquier dato de un curso del sistema',
+        ]);
+        
+        Permission::create([
+            'name'          => 'Eliminar cursos',
+            'slug'          => 'cursos.destroy',
+            'description'   => 'Podría eliminar cualquier curso del sistema',      
         ]);
     }
 }

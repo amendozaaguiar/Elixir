@@ -17,9 +17,4 @@ class Programas extends Model
         'nombre',
         'activo'
     ];
-
-    public function cursos()
-    {
-        return $this->hasMany(Cursos::class, 'programa_id', 'id');
-    }
 }
