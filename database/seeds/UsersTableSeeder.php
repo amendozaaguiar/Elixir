@@ -42,5 +42,21 @@ class UsersTableSeeder extends Seeder
             'primer_apellido'   => 'del',
             'segundo_apellido'  => 'sistema'
         ]);
+
+         /**GROPO DE USUARIO EXTERNOS*/
+        Role::create([
+            'name'          => 'Aspirantes',
+            'slug'          => 'aspirantes',
+            'description'   => 'Rol por defecto de usuarios que son aspirantes'
+        ]);
+
+        //Asignacion del permiso al admin
+        DB::table('permission_role')->insert([
+            'permission_id' => '12',   
+            'role_id' => '2'
+        ]);
+
+
+       
     }
 }

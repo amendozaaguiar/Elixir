@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Hash;
 
 //Model
 use App\Tipos_Documento;
-use App\User_Detail;
 
 class UserController extends Controller
 {
@@ -53,6 +52,7 @@ class UserController extends Controller
         ]);
 
         $user->detail()->create([
+            'user_id' => $user->id,
             'tipo_documento_id'  => $request->detail['tipo_documento_id'],
             'numero_documento'   => $request->detail['numero_documento'],
             'primer_nombre'      => $request->detail['primer_nombre'],
@@ -61,8 +61,18 @@ class UserController extends Controller
             'segundo_apellido'   => $request->detail['segundo_apellido']
         ]);
 
+        //Si el nombre es default, se asigna el rol de aspirantes (rol 2 por defecto en el sistema)
+        if($request->name=='default'){
+            //Asignacion del permiso al usuario
+            DB::table('role_user')->insert([
+                'role_id' => '2',   
+                'user_id' => $user->id,
+            ]);
+            //redirecciono al login;
+            return redirect()->route('login');        }
+
         return redirect()->route('users.edit', $user->id)
-            ->with('info', 'Usuario guardado con éxito');
+            ->with('info', 'Usuario registrado con éxito');
     }
 
     /**
@@ -134,5 +144,11 @@ class UserController extends Controller
         $user->detail()->delete();
         $user->delete();
         return back()->with('info', 'Eliminado correctamente');
+    }
+
+    public function createExternal()
+    {
+        $documentos = Tipos_Documento::where('activo', 1)->get()->pluck('descripcion', 'id');
+        return view('users.create',compact('documentos'));
     }
 }

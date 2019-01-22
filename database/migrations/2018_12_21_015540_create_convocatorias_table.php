@@ -26,10 +26,10 @@ class CreateConvocatoriasTable extends Migration
             $table->unsignedInteger('curso_id')
                 ->comment('Codigo del curso');
             
-            $table->string('perfil')
+            $table->text('perfil')
                 ->dafault('')
                 ->comment('perfil de la convocatoria');
-            $table->string('requisitos')
+            $table->text('requisitos')
                 ->dafault('')
                 ->comment('Requisitos de la convocatoria');
             

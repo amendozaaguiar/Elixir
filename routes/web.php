@@ -10,25 +10,24 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
+
+Route::get('/', 'WelcomeController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Rutas especiales de usuario externos del sistema
+Route::get('users/create/external', 'UserController@createExternal')->name('users.create.external');
+Route::post('users/store', 'UserController@store')->name('users.store');
+
+
 Route::middleware(['auth'])->group(function () {
-	//Users
+	/**USERS*/
 	Route::get('users', 'UserController@index')->name('users.index')
 		->middleware('permission:users.index');
 
 	Route::get('users/create', 'UserController@create')->name('users.create')
-		->middleware('permission:users.create');
-
-	Route::post('users/store', 'UserController@store')->name('users.store')
-		->middleware('permission:users.create');
+		->middleware('permission:users.create');	
 
 	Route::get('users/{user}', 'UserController@show')->name('users.show')
 		->middleware('permission:users.show');
@@ -41,6 +40,8 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::delete('users/{user}', 'UserController@destroy')->name('users.destroy')
 		->middleware('permission:users.destroy');	
+
+		
 
 	//ROLES
 	Route::get('roles', 'RoleController@index')->name('roles.index')
@@ -114,7 +115,7 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-	//CAT
+	/**CAT*/
 	Route::get('cats', 'CatController@index')->name('cats.index')
 		->middleware('permission:cat.index');
 
@@ -137,7 +138,7 @@ Route::middleware(['auth'])->group(function () {
 		->middleware('permission:cat.destroy');
 
 
-	//programas
+	/**PROGRAMAS*/
 	Route::get('programas', 'ProgramaController@index')->name('programas.index')
 		->middleware('permission:programas.index');
 
@@ -159,7 +160,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::delete('programas/{programa}', 'ProgramaController@destroy')->name('programas.destroy')
 		->middleware('permission:programas.destroy');
 
-	//cursos
+	/**CURSOS*/
 	Route::get('cursos', 'CursoController@index')->name('cursos.index')
 		->middleware('permission:cursos.index');
 

@@ -51,15 +51,16 @@
 <div class="form-group">
 	<div class="row">
 		<div class="col-md-6">
-				{{ Form::label('email', 'Correo Electronico')}}
-				{{ Form::email('email', null, ['class' => 'form-control', 'id' => 'email']) }}
+			{{ Form::label('email', 'Correo Electronico')}}
+			{{ Form::email('email', null, ['class' => 'form-control', 'id' => 'email']) }}
 			</div>
 		<div class="col-md-6">
-			{{ Form::label('name', 'Alias de usuario') }}
-			{{ Form::text('name', null, ['class' => 'form-control', 'id' => 'name']) }}
+			{{ Form::label('name', '&nbsp')}}
+			{{ Form::text('name', (!Auth::check()) ? 'default' : 'internal', ['class' => 'form-control', 'id' => 'name']) }}
 		</div>
 	</div>
 </div>
+@unless(!Auth::check())
 <hr>
 <h3>Lista de roles</h3>
 <div class="form-group">
@@ -74,6 +75,7 @@
 	    @endforeach
     </ul>
 </div>
+@endunless
 <div class="form-group">
 	<div class="row">
 		<div class="col-md-6">
