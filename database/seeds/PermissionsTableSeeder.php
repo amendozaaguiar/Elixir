@@ -199,5 +199,37 @@ class PermissionsTableSeeder extends Seeder
             'slug'          => 'cursos.destroy',
             'description'   => 'Podría eliminar cualquier curso del sistema',      
         ]);
+
+
+        /**APLICANTES CONVOCATORIA*/
+        Permission::create([
+            'name'          => 'Navegar Aplicantes a Convocatoria',
+            'slug'          => 'aplicantesConvocatorias.index',
+            'description'   => 'Lista y navega todos los aplicantesConvocatoria del sistema',
+        ]);
+
+        Permission::create([
+            'name'          => 'Ver detalle de una aplicacion a una convocatoria',
+            'slug'          => 'aplicantesConvocatorias.show',
+            'description'   => 'Ve en detalle cadaa aplicacion a una convocatoria del sistema',            
+        ]);
+        
+        Permission::create([
+            'name'          => 'Creación de aplicantesConvocatoria',
+            'slug'          => 'aplicantesConvocatorias.create',
+            'description'   => 'Podría aplicar a convocatorias',
+        ]);
+        
+        Permission::create([
+            'name'          => 'Edición de aplicantesConvocatoria',
+            'slug'          => 'aplicantesConvocatorias.edit',
+            'description'   => 'Podría editar cualquier dato de una aplicacion a una convocatoria del sistema',
+        ]);
+        
+        Permission::create([
+            'name'          => 'Eliminar aplicantesConvocatoria',
+            'slug'          => 'aplicantesConvocatorias.destroy',
+            'description'   => 'Podría eliminar cualquiera aplicacion a una convocatoria del sistema',      
+        ]);
     }
 }

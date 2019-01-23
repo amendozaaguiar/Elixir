@@ -69,7 +69,8 @@ class UserController extends Controller
                 'user_id' => $user->id,
             ]);
             //redirecciono al login;
-            return redirect()->route('login');        }
+            return redirect()->route('login');        
+        }
 
         return redirect()->route('users.edit', $user->id)
             ->with('info', 'Usuario registrado con éxito');

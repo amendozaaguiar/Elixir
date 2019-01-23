@@ -186,5 +186,29 @@ Route::middleware(['auth'])->group(function () {
 	//Ruta para consultar municipios dependiendo del departamento
 	Route::get('municipios/todos/departamento/{id}', 'MunicipioController@getMunicipios')->name('municipios.getMunicipios');
 
+
+
+	//CONVOCATORIAS
+	Route::get('aplicantesConvocatorias', 'AplicantesConvocatoriaController@index')->name('aplicantesConvocatorias.index')
+		->middleware('permission:aplicantesConvocatorias.index');
+
+	Route::get('aplicantesConvocatorias/create', 'AplicantesConvocatoriaController@create')->name('aplicantesConvocatorias.create')
+		->middleware('permission:aplicantesConvocatorias.create');
+
+	Route::post('aplicantesConvocatorias/store', 'AplicantesConvocatoriaController@store')->name('aplicantesConvocatorias.store')
+		->middleware('permission:aplicantesConvocatorias.create');
+
+	Route::get('aplicantesConvocatorias/{aplicantesConvocatoria}', 'AplicantesConvocatoriaController@show')->name('aplicantesConvocatorias.show')
+		->middleware('permission:aplicantesConvocatorias.show');
+
+	Route::get('aplicantesConvocatorias/{aplicantesConvocatoria}/edit', 'AplicantesConvocatoriaController@edit')->name('aplicantesConvocatorias.edit')
+		->middleware('permission:aplicantesConvocatorias.edit');	
+
+	Route::put('aplicantesConvocatorias/{aplicantesConvocatoria}/', 'AplicantesConvocatoriaController@update')->name('aplicantesConvocatorias.update')
+		->middleware('permission:aplicantesConvocatorias.edit');	
+
+	Route::delete('aplicantesConvocatorias/{aplicantesConvocatoria}', 'AplicantesConvocatoriaController@destroy')->name('aplicantesConvocatorias.destroy')
+		->middleware('permission:aplicantesConvocatorias.destroy');
+
 	
 });

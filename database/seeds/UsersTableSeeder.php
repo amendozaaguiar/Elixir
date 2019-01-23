@@ -51,10 +51,9 @@ class UsersTableSeeder extends Seeder
         ]);
 
         //Asignacion del permiso al admin
-        DB::table('permission_role')->insert([
-            'permission_id' => '12',   
-            'role_id' => '2'
-        ]);
+        DB::table('permission_role')->insert(
+            ['permission_id' => '33', 'role_id' => '2']
+        );
 
 
        
