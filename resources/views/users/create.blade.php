@@ -6,7 +6,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Usuarios</div>
-
+                @include('alerts.errors')
+                @include('alerts.info')
                 <div class="card-body">                    
                     {{ Form::open(['route' => 'users.store']) }}
 

@@ -6,7 +6,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Usuario {{ $user->attributes }}</div>
-
+                @include('alerts.errors')
+                @include('alerts.info')
                 <div class="card-body">                    
                     {!! Form::model($user, ['route' => ['users.update', $user->id],
                     'method' => 'PUT']) !!}

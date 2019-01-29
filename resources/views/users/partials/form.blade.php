@@ -44,7 +44,7 @@
 			</div>
 		<div class="col-md-6">
 			{{ Form::label('password-confirm', 'Confirmar contraseña') }}
-			{{ Form::password('password-confirm', ['class' => 'form-control', 'id' => 'password-confirm']) }}
+			{{ Form::password('password_confirm', ['class' => 'form-control', 'id' => 'password_confirm']) }}
 		</div>
 	</div>
 </div>
@@ -55,8 +55,7 @@
 			{{ Form::email('email', null, ['class' => 'form-control', 'id' => 'email']) }}
 			</div>
 		<div class="col-md-6">
-			{{ Form::label('name', '&nbsp')}}
-			{{ Form::text('name', (!Auth::check()) ? 'default' : 'internal', ['class' => 'form-control', 'id' => 'name']) }}
+			{{ Form::hidden('name', (!Auth::check()) ? 'default' : 'internal', ['class' => 'form-control', 'id' => 'name']) }}
 		</div>
 	</div>
 </div>

@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
-use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Support\Facades\DB;
-use App\User;
 use Illuminate\Support\Facades\Hash;
 
 //Model
 use App\Tipos_Documento;
+use App\User;
+use Caffeinated\Shinobi\Models\Role;
+
+//Request
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -43,8 +46,12 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
+        if ($request->password != $request->password_confirm) {
+            return back()->with('info_danger', 'El campo Confirmar Contraseña debe de coincidir con el campo contraseña');
+        }
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -109,7 +116,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
         
         $user = User::with('detail')->find($id);
@@ -144,7 +151,7 @@ class UserController extends Controller
         $user = User::with('detail')->find($id);
         $user->detail()->delete();
         $user->delete();
-        return back()->with('info', 'Eliminado correctamente');
+        return back()->with('info', 'Usuario eliminado correctamente');
     }
 
     public function createExternal()

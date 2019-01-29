@@ -13,6 +13,7 @@ class CreateEvaluacionesConvocatoriasTable extends Migration
      */
     public function up()
     {
+        //computar eentre total entrevista y hv para dar el total Final
         Schema::create('evaluaciones_convocatorias', function (Blueprint $table) {
             $table->increments('id');
             
@@ -57,6 +58,14 @@ class CreateEvaluacionesConvocatoriasTable extends Migration
             
             $table->unsignedDecimal('jurado_2', 3, 2)
                 ->comment('calificacion jurado 2');
+
+            $table->unsignedDecimal('jurado_3', 3, 2)
+                ->comment('calificacion jurado 3');
+
+            $table->unsignedDecimal('total_entrevista', 3, 2)
+                ->comment('calificacion jurado 2');
+
+
             $table->softDeletes(); 
             $table->timestamps();
 
