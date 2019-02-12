@@ -14,11 +14,17 @@ class CreateEstadosEvaluacionTable extends Migration
     public function up()
     {
         Schema::create('estados_evaluacion', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('descripcion',25)
-                ->comment('Descripcion del estado de la evaluacion de los postulantes');            
+            $table->increments('id')
+                ->comment('Codigo del estado de la evaluacion');
+
+            $table->string('descripcion',50)
+                ->comment('Descripcion del estado de la evaluacion de los postulantes'); 
+
             $table->timestamps();
-            $table->softDeletes();
+                //->comment('Creacion/Actualizacion del registro');
+
+            $table->softDeletes()
+                ->comment('Eliminacion del registro');
         });
     }
 

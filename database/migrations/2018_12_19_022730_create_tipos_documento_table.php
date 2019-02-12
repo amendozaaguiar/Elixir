@@ -14,11 +14,21 @@ class CreateTiposDocumentoTable extends Migration
     public function up()
     {
         Schema::create('tipos_documento', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('descripcion',50);
-            $table->boolean('activo')->default(1);            
+            $table->increments('id')
+                ->comment('Codigo del tipo de documento');
+
+            $table->string('descripcion',50)
+                ->comment('Descripcion');
+
+            $table->boolean('activo')
+                ->default(1)
+                ->comment('Activo');
+
             $table->timestamps();
-            $table->softDeletes();
+                //->comment('Creacion/Actualizacion del registro');
+
+            $table->softDeletes()
+                ->comment('Eliminacion del registro');
         });
     }
 

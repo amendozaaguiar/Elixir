@@ -14,13 +14,21 @@ class CreateProgramasTable extends Migration
     public function up()
     {
         Schema::create('programas', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nombre',50) 
-                ->dafault('')
+            $table->increments('id')
+                ->comment('Codigo del programa');
+
+            $table->string('nombre',50)
                 ->comment('Nombre del programa');
-            $table->boolean('activo')->default(1);            
+
+            $table->boolean('activo')
+                ->default(1)
+                ->comment('Activo');
+
             $table->timestamps();
-            $table->softDeletes();
+                //->comment('Creacion/Actualizacion del registro');
+
+            $table->softDeletes()
+                ->comment('Eliminacion del registro');
         });
     }
 

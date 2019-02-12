@@ -14,15 +14,23 @@ class CreateMunicipiosTable extends Migration
     public function up()
     {
         Schema::create('municipios', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')
+                ->comment('Codigo del municipio');
+                
             $table->unsignedInteger('departamento_id')
                 ->comment('Codigo del departamento al que pertenece');
-            $table->string('codigo_divipola',3)->comment('Codigo de la divipola del municipio');
+
+            $table->string('codigo_divipola',3)
+                ->comment('Codigo de la divipola del municipio');
+
             $table->string('nombre',50)
-                ->dafault('')
-                ->comment('Nombre del municipio');            
+                ->comment('Nombre del municipio');    
+
             $table->timestamps();
-            $table->softDeletes();
+                //->comment('Creacion/Actualizacion del registro');
+
+            $table->softDeletes()
+                ->comment('Eliminacion del registro');
 
             //Foraneas
             $table->foreign('departamento_id')->references('id')->on('departamentos');

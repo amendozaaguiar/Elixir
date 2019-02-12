@@ -14,13 +14,20 @@ class CreatePlantillasTable extends Migration
     public function up()
     {
         Schema::create('plantillas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')
+                ->comment('Codigo de la plantilla');
+
             $table->string('nombre_plantilla',50)
                 ->comment('Nombre de la plantilla');
+
             $table->text('detalle')
-                ->comment('Descripcion de la plantilla');
+                ->comment('Detalle de la plantilla de la plantilla');
+
             $table->timestamps();
-            $table->softDeletes();
+                //->comment('Creacion/Actualizacion del registro');
+
+            $table->softDeletes()
+                ->comment('Eliminacion del registro');
         });
     }
 

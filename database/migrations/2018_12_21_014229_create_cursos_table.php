@@ -15,22 +15,28 @@ class CreateCursosTable extends Migration
     {
         Schema::create('cursos', function (Blueprint $table) {
             
-            $table->increments('id')->comment('Codigo del curso');
+            $table->increments('id')
+                ->comment('Codigo del curso');
             
             $table->unsignedInteger('programa_id')
                 ->comment('Codigo del programa al que pertenece');
             
-            $table->string('nombre',50) 
-                ->dafault('')
+            $table->string('nombre',50)
                 ->comment('Nombre del curso');
 
             $table->text('perfil')
                 ->dafault('')
-                ->comment('Perfil de programa');
+                ->comment('Perfil que se requier para el programa');
             
-            $table->boolean('activo')->default(1);
+            $table->boolean('activo')
+                ->default(1)
+                ->comment('Activo');
+
             $table->timestamps();
-            $table->softDeletes();
+                //->comment('Creacion/Actualizacion del registro');
+
+            $table->softDeletes()
+                ->comment('Eliminacion del registro');
             
             //Foraneas
             $table->foreign('programa_id')->references('id')->on('programas');

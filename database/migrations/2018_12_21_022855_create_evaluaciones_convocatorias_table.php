@@ -13,9 +13,10 @@ class CreateEvaluacionesConvocatoriasTable extends Migration
      */
     public function up()
     {
-        //computar eentre total entrevista y hv para dar el total Final
+        //computar entre total entrevista y hv para dar el total Final
         Schema::create('evaluaciones_convocatorias', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')
+                ->comment('Codigo de la evaluacion de la convocatoria');
             
             $table->unsignedInteger('aplicantes_convocatorias_id')
                 ->comment('Codigo de la aspiracion a la convocatoria');
@@ -45,28 +46,31 @@ class CreateEvaluacionesConvocatoriasTable extends Migration
                 ->comment('Experiencia Profesional (Hasta 4 puntos) 2 puntos por cada año de experiencia');
             
             $table->unsignedDecimal('total_hoja_vida', 3, 2)
-                ->comment('calificacion hoja de vida');
+                ->comment('Calificacion hoja de vida');
             
             $table->unsignedDecimal('ensayo', 3, 2)
-                ->comment('calificacion ensayo');
+                ->comment('Calificacion ensayo');
             
             $table->unsignedDecimal('prueba_conocimiento', 3, 2)
-                ->comment('calificacion prueba de conocimiento');
+                ->comment('Calificacion prueba de conocimiento');
             
             $table->unsignedDecimal('jurado_1', 3, 2)
-                ->comment('calificacion jurado 1');
+                ->comment('Calificacion jurado 1');
             
             $table->unsignedDecimal('jurado_2', 3, 2)
-                ->comment('calificacion jurado 2');
+                ->comment('Calificacion jurado 2');
 
             $table->unsignedDecimal('jurado_3', 3, 2)
-                ->comment('calificacion jurado 3');
+                ->comment('Calificacion jurado 3');
 
             $table->unsignedDecimal('total_entrevista', 3, 2)
-                ->comment('calificacion jurado 2');
+                ->comment('Total puntaje entrevista');
 
             $table->timestamps();
-            $table->softDeletes();
+                //->comment('Creacion/Actualizacion del registro');
+
+            $table->softDeletes()
+                ->comment('Eliminacion del registro');
 
             //Foraneas
             $table->foreign('aplicantes_convocatorias_id')->references('id')->on('aplicantes_convocatorias');

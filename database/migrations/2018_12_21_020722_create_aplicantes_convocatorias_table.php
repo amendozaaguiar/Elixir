@@ -14,30 +14,45 @@ class CreateAplicantesConvocatoriasTable extends Migration
     public function up()
     {
         Schema::create('aplicantes_convocatorias', function (Blueprint $table) {
-            $table->increments('id');            
+            $table->increments('id')
+                ->comment('Codigo de la aplicacion a la convocatoria');
+
             $table->unsignedInteger('convocatoria_id')
-                ->comment('Codigo de la convocatoria');            
+                ->comment('Codigo de la convocatoria');
+
             $table->unsignedInteger('aspirante_id')
-                ->comment('Codigo del aspirante');            
+                ->comment('Codigo del aspirante');
+
             $table->string('hoja_vida',50)
-                ->comment('url de la hoja de vida');            
+                ->comment('Url de la hoja de vida');
+
             $table->boolean('pre_seleccionado')
-                ->comment('Preseleccionado 1=si / 0=no')
-                ->default(1);            
+                ->default(1)
+                ->comment('Preseleccionado 1=si / 0=no');  
+
             $table->text('observaciones')
-                ->comment('observaciones de la aplicacion a la convocatoria');            
+                ->comment('Observaciones de la aplicacion a la convocatoria'); 
+
             $table->text('temas_presentacion')
-                ->comment('tema para la realizacion del ensayo');            
+                ->comment('Tema para la realizacion del ensayo');
+
             $table->text('lugar_presentacion')
-                ->comment('lugar de presentacion');            
+                ->comment('Lugar de presentacion de la entrevista');
+
             $table->dateTime('fecha_hora_presentacion')
-                ->comment('Fecha y hora de presentacion');
+                ->comment('Fecha y hora de presentacion de la entrevista');
+
             $table->unsignedInteger('usuario_reviso_id')
                 ->comment('Codigo del usuario que reviso los convocados');
+
             $table->unsignedInteger('estado_evalucion_id')
-                ->comment('Estado en que se encuentra la convocatoria');            
+                ->comment('Estado en que se encuentra la convocatoria');
+
             $table->timestamps();
-            $table->softDeletes();
+                //->comment('Creacion/Actualizacion del registro');
+
+            $table->softDeletes()
+                ->comment('Eliminacion del registro');
 
             //Foraneas
             $table->foreign('convocatoria_id')->references('id')->on('convocatorias');
