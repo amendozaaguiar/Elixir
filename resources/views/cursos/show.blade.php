@@ -11,6 +11,7 @@
                     <p><strong>Codigo:</strong>   {{ $curso->id }}</p>
                     <p><strong>Nombre del programa:</strong>   {{ $curso->programa->nombre }}</p>
                     <p><strong>Nombre:</strong>   {{ $curso->nombre }}</p>
+                    <p><strong>Perfil:</strong>   {{ $curso->perfil }}</p>
                     <p><strong>Activo:</strong>   {{ $curso->activo ? 'Activo' : 'Inactivo' }}</p>
 
                 </div>

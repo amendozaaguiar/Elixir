@@ -42,6 +42,7 @@ class CursoController extends Controller
         $curso = Cursos::create([
             'programa_id' => $request->programa_id,
             'nombre' => $request->nombre,
+            'perfil' => $request->perfil,
             'activo' => $request->activo,
         ]);
         return redirect()->route('cursos.edit', $curso->id);
@@ -85,6 +86,7 @@ class CursoController extends Controller
         $curso = Cursos::find($id);
             $curso->programa_id = $request->programa_id;
             $curso->nombre = $request->nombre;
+            $curso->perfil = $request->perfil;
             $curso->activo = $request->activo;
         $curso->save();
 

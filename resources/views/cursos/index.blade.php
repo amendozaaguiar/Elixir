@@ -21,6 +21,7 @@
                                 <th>Id</th>
                                 <th>Programa</th>
                                 <th>Nombre</th>
+                                <th>Perfil</th>
                                 <th>Activo</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
@@ -31,6 +32,7 @@
                                 <td>{{ $curso->id }}</td>
                                 <td>{{ $curso->programa->nombre }}</td>
                                 <td>{{ $curso->nombre }}</td>
+                                <td>{{ $curso->perfil }}</td>
                                 <td>{{ $curso->activo ? 'Activo' : 'Inactivo'  }}</td>
 
                                 @can('cursos.show')

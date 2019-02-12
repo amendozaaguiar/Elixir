@@ -21,7 +21,14 @@
 			{{ Form::select('activo', [1=>'Si', 0=>'No'], null,['class' => 'form-control', 'id' => 'activo']) }}
 		</div>
 	</div>
-
+</div>
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-12">
+			{{ Form::label('perfil', 'Perfil') }}
+			{{ Form::textarea('perfil', null, ['class' => 'form-control', 'id' => 'perfil']) }}
+		</div>
+	</div>
 </div>
 
 <div class="form-group">

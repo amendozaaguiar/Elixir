@@ -23,11 +23,15 @@ class CreateCursosTable extends Migration
             $table->string('nombre',50) 
                 ->dafault('')
                 ->comment('Nombre del curso');
+
+            $table->text('perfil')
+                ->dafault('')
+                ->comment('Perfil de programa');
             
             $table->boolean('activo')->default(1);
-            $table->softDeletes();
             $table->timestamps();
-
+            $table->softDeletes();
+            
             //Foraneas
             $table->foreign('programa_id')->references('id')->on('programas');
         });
