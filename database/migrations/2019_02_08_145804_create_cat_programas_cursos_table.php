@@ -21,9 +21,8 @@ class CreateCatProgramasCursosTable extends Migration
                 ->comment('Codigo del programa');
                 $table->unsignedInteger('curso_id')
                 ->comment('Codigo del curso');
-
-            $table->softDeletes(); 
             $table->timestamps();
+            $table->softDeletes();
 
             //Foraneas
             $table->foreign('cat_id')->references('id')->on('cat');

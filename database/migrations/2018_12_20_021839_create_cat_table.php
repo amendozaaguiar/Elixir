@@ -26,15 +26,12 @@ class CreateCatTable extends Migration
                 ->comment('email contacto del CAT');
             $table->unsignedInteger('departamento_id')
                 ->comment('Codigo del departamento al que pertenece');
-
             $table->unsignedInteger('municipio_id')
-                ->comment('Codigo del departamento al que pertenece');
-            
+                ->comment('Codigo del departamento al que pertenece');            
             $table->boolean('activo')
-                ->default(1);
-            $table->softDeletes();
+                ->default(1);           
             $table->timestamps();
-
+             $table->softDeletes();
             //Foarenas
             $table->foreign('departamento_id')->references('id')->on('departamentos');
             $table->foreign('municipio_id')->references('id')->on('municipios');

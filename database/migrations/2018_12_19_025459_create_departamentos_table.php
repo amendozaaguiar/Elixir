@@ -18,9 +18,9 @@ class CreateDepartamentosTable extends Migration
             $table->string('codigo_divipola',2) ->comment('Codigo divipola del departamento');
             $table->string('nombre',25)
                 ->dafault('')
-                ->comment('Nombre del departamento');
-            $table->softDeletes();
+                ->comment('Nombre del departamento');            
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

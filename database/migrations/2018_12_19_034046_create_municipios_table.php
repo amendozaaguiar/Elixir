@@ -20,9 +20,9 @@ class CreateMunicipiosTable extends Migration
             $table->string('codigo_divipola',3)->comment('Codigo de la divipola del municipio');
             $table->string('nombre',50)
                 ->dafault('')
-                ->comment('Nombre del municipio');
-            $table->softDeletes();
+                ->comment('Nombre del municipio');            
             $table->timestamps();
+            $table->softDeletes();
 
             //Foraneas
             $table->foreign('departamento_id')->references('id')->on('departamentos');

@@ -19,8 +19,8 @@ class CreatePlantillasTable extends Migration
                 ->comment('Nombre de la plantilla');
             $table->text('detalle')
                 ->comment('Descripcion de la plantilla');
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

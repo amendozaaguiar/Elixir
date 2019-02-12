@@ -65,9 +65,8 @@ class CreateEvaluacionesConvocatoriasTable extends Migration
             $table->unsignedDecimal('total_entrevista', 3, 2)
                 ->comment('calificacion jurado 2');
 
-
-            $table->softDeletes(); 
             $table->timestamps();
+            $table->softDeletes();
 
             //Foraneas
             $table->foreign('aplicantes_convocatorias_id')->references('id')->on('aplicantes_convocatorias');

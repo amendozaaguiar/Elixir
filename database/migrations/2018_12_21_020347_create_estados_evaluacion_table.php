@@ -16,9 +16,9 @@ class CreateEstadosEvaluacionTable extends Migration
         Schema::create('estados_evaluacion', function (Blueprint $table) {
             $table->increments('id');
             $table->string('descripcion',25)
-                ->comment('Descripcion del estado de la evaluacion de los postulantes');
-            $table->softDeletes();
+                ->comment('Descripcion del estado de la evaluacion de los postulantes');            
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
