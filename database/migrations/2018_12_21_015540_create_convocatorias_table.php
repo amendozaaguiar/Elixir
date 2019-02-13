@@ -17,20 +17,14 @@ class CreateConvocatoriasTable extends Migration
             $table->increments('id')
                 ->comment('Codigo de la convocatoria');
 
-            $table->unsignedInteger('cat_id')
-                ->comment('Codigo del CAT');
+            $table->text('descripcion')
+                ->comment('Descripcion de la convocatoria');
 
-            $table->unsignedInteger('programa_id')
-                ->comment('Codigo del programa');
+            $table->date('fecha_inicio')
+                ->comment('fecha de inicio de la convocatoria');
 
-            $table->unsignedInteger('curso_id')
-                ->comment('Codigo del curso');
-
-            $table->text('perfil')
-                ->comment('Perfil de la convocatoria');
-
-            $table->text('requisitos')
-                ->comment('Requisitos de la convocatoria');
+            $table->date('fecha_finalizacion')
+                ->comment('fecha de finalizacion de la convocatoria');
 
             $table->boolean('activa')
                 ->default(1)
@@ -41,11 +35,6 @@ class CreateConvocatoriasTable extends Migration
 
             $table->softDeletes()
                 ->comment('Eliminacion del registro');
-
-            //Foraneas
-            $table->foreign('cat_id')->references('id')->on('cat');
-            $table->foreign('programa_id')->references('id')->on('programas');
-            $table->foreign('curso_id')->references('id')->on('cursos');
         });
     }
 

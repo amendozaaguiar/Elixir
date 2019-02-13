@@ -20,12 +20,11 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th>id</th>
-                                <th>CAT</th>
-                                <th>Programa</th>
-                                <th>Curso</th>
-                                <th>Perfil</th>
-                                <th>Requisitos</th>
-                                <th>Activa</th>
+                                <th>Año</th>
+                                <th>Descripcion</th>
+                                <th>Fecha de Inicio</th>
+                                <th>Fecha de Finalizacion</th>
+                                <th>Estado</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>
@@ -33,11 +32,10 @@
                             @foreach($convocatorias as $convocatoria)
                             <tr>
                                 <td>{{ $convocatoria->id }}</td>
-                                <td>{{ $convocatoria->cat->nombre }}</td>
-                                <td>{{ $convocatoria->programa->nombre }}</td>
-                                <td>{{ $convocatoria->curso->nombre }}</td>
-                                <td>{{ $convocatoria->perfil }}</td>
-                                <td>{{ $convocatoria->requisitos }}</td>
+                                <td>{{ date('Y',strtotime($convocatoria->fecha_inicio)) }}</td>
+                                <td>{{ $convocatoria->descripcion }}</td>
+                                <td>{{ $convocatoria->fecha_inicio }}</td>
+                                <td>{{ $convocatoria->fecha_finalizacion }}</td>
                                 <td>{{ $convocatoria->activa ? 'Activa' : 'Terminada'  }}</td>
 
                                 @can('convocatorias.show')

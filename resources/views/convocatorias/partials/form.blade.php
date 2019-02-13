@@ -1,37 +1,21 @@
 <div class="form-group">
 	<div class="row">
 		<div class="col-md-12">
-			{{ Form::label('cat_id', 'CAT')}}
-			{{ Form::select('cat_id', $cat, null,  ['class' => 'form-control', 'id' => 'cat_id']) }}
+			{{ Form::label('descripcion', 'Descripcion') }}
+			{{ Form::textarea('descripcion', null, ['class' => 'form-control', 'id' => 'descripcion']) }}
 		</div>
 	</div>
 </div>
-
 <div class="form-group">
 	<div class="row">
 		<div class="col-md-6">
-			{{ Form::label('programa_id', 'Programa')}}
-			{{ Form::select('programa_id', $programas, null,  ['class' => 'form-control', 'id' => 'programa_id', 'onChange' => 'getCursos()']) }}
+			{{ Form::label('fecha_inicio', 'Fecha de inicio') }}
+			{{ Form::date('fecha_inicio', null, ['class' => 'form-control', 'id' => 'fecha_inicio']) }}
 		</div>
+	
 		<div class="col-md-6">
-			{{ Form::label('curso_id', 'Cursos')}}
-			{{ Form::select('curso_id', $cursos , null,['class' => 'form-control', 'id' => 'curso_id']) }}
-		</div>
-	</div>
-</div>
-<div class="form-group">
-	<div class="row">
-		<div class="col-md-12">
-			{{ Form::label('perfil', 'Perfil') }}
-			{{ Form::textarea('perfil', null, ['class' => 'form-control', 'id' => 'perfil']) }}
-		</div>
-	</div>
-</div>
-<div class="form-group">
-	<div class="row">
-		<div class="col-md-12">
-			{{ Form::label('requisitos', 'Requisitos') }}
-			{{ Form::textarea('requisitos', null, ['class' => 'form-control', 'id' => 'requisitos']) }}
+			{{ Form::label('fecha_finalizacion', 'Fecha de finalizacion') }}
+			{{ Form::date('fecha_finalizacion', null, ['class' => 'form-control', 'id' => 'fecha_finalizacion']) }}
 		</div>
 	</div>
 	<div class="row">

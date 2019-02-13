@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+//Modelos
 use App\Convocatorias;
-use App\Cat;
-use App\Cursos;
-use App\Programas;
+
 class ConvocatoriaController extends Controller
 {
     /**
@@ -16,7 +16,7 @@ class ConvocatoriaController extends Controller
      */
     public function index()
     {
-        $convocatorias = Convocatorias::with(['programa','curso'])->paginate();
+        $convocatorias = Convocatorias::paginate(10);
         return view('convocatorias.index', compact('convocatorias'));
     }
 
@@ -27,12 +27,6 @@ class ConvocatoriaController extends Controller
      */
     public function create()
     {   
-        $cat = Cat::where('activo', 1)->get()->pluck('nombre', 'id');
-        $programas = Programas::where('activo', 1)->get();
-        $programa_id = $programas->first()->id;
-        $programas= $programas->pluck('nombre', 'id');
-        $cursos = Cursos::where(['activo' => 1,'programa_id' => $programa_id])->get()->pluck('nombre', 'id');
-
         return view('convocatorias.create',compact('programas','cursos','cat'));
     }
 
@@ -44,14 +38,13 @@ class ConvocatoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $convocatoria = Convocatorias::create([
-            'cat_id' => $request->cat_id,
-            'programa_id' => $request->programa_id,
-            'curso_id' => $request->curso_id,
-            'perfil' => $request->perfil,
-            'requisitos' => $request->requisitos,
-            'activa' => $request->activa,
-        ]);
+        $convocatoria = new Convocatorias;
+            $convocatoria->descripcion = $request->descripcion;
+            $convocatoria->fecha_inicio = $request->fecha_inicio;
+            $convocatoria->fecha_finalizacion = $request->fecha_finalizacion;
+            $convocatoria->activa =  $request->activa;        
+        $convocatoria->save();
+
         return redirect()->route('convocatorias.edit', $convocatoria->id);
     }
 
@@ -63,7 +56,7 @@ class ConvocatoriaController extends Controller
      */
     public function show($id)
     {
-        $convocatoria = Convocatorias::with(['programa','curso'])->find($id);
+        $convocatoria = Convocatorias::find($id);
         return view('convocatorias.show', compact('convocatoria'));
     }
 
@@ -76,15 +69,7 @@ class ConvocatoriaController extends Controller
     public function edit($id)
     {
         $convocatoria = Convocatorias::find($id);
-        
-        $cat = Cat::where('activo', 1)->get();
-        $programas = Programas::where('activo', 1)->get();
-        $cursos = Cursos::where(['activo' => 1,'programa_id' => $convocatoria->programa_id])->get();
-
-        $cat = $cat->pluck('nombre', 'id');
-        $programas = $programas->pluck('nombre', 'id');
-        $cursos = $cursos->pluck('nombre', 'id');
-        return view('convocatorias.edit',compact('convocatoria','cat','programas','cursos'));
+        return view('convocatorias.edit',compact('convocatoria'));
     }
 
     /**
@@ -97,11 +82,9 @@ class ConvocatoriaController extends Controller
     public function update(Request $request, $id)
     {
         $convocatoria = Convocatorias::find($id);
-            $convocatoria->cat_id = $request->cat_id;
-            $convocatoria->curso_id = $request->curso_id;
-            $convocatoria->programa_id = $request->programa_id;
-            $convocatoria->perfil = $request->perfil;
-            $convocatoria->requisitos = $request->requisitos;
+            $convocatoria->descripcion = $request->descripcion;
+            $convocatoria->fecha_inicio = $request->fecha_inicio;
+            $convocatoria->fecha_finalizacion = $request->fecha_finalizacion;
             $convocatoria->activa = $request->activa;
         $convocatoria->save();
 

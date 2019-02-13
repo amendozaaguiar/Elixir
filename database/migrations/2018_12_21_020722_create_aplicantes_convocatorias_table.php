@@ -17,8 +17,8 @@ class CreateAplicantesConvocatoriasTable extends Migration
             $table->increments('id')
                 ->comment('Codigo de la aplicacion a la convocatoria');
 
-            $table->unsignedInteger('convocatoria_id')
-                ->comment('Codigo de la convocatoria');
+            $table->unsignedInteger('detalle_convocatoria_id')
+                ->comment('Codigo del detalle la convocatoria');
 
             $table->unsignedInteger('aspirante_id')
                 ->comment('Codigo del aspirante');
@@ -55,7 +55,7 @@ class CreateAplicantesConvocatoriasTable extends Migration
                 ->comment('Eliminacion del registro');
 
             //Foraneas
-            $table->foreign('convocatoria_id')->references('id')->on('convocatorias');
+            $table->foreign('detalle_convocatoria_id')->references('id')->on('detalle_convocatorias');
             $table->foreign('aspirante_id')->references('id')->on('users');
             $table->foreign('usuario_reviso_id')->references('id')->on('users');
             $table->foreign('estado_evalucion_id')->references('id')->on('estados_evaluacion');

@@ -9,10 +9,10 @@
 
                 <div class="card-body">                                        
                     <p><strong>Codigo convocatoria:</strong>   {{ $convocatoria->id }}</p>
-                    <p><strong>Programa:</strong>   {{ $convocatoria->programa->nombre }}</p>
-                    <p><strong>Curso:</strong>   {{ $convocatoria->curso->nombre }}</p>
-                    <p><strong>Perfil:</strong>   {{ $convocatoria->perfil }}</p>
-                    <p><strong>Requisitos:</strong>   {{ $convocatoria->requisitos }}</p>
+                    <p><strong>Año:</strong>   {{  date('Y',strtotime($convocatoria->fecha_inicio)) }}</p
+                    <p><strong>Descripcion:</strong>   {{ $convocatoria->descripcion }}</p>
+                    <p><strong>Fecha de inicio:</strong>   {{ $convocatoria->fecha_inicio }}</p>
+                    <p><strong>Fecha de finalizacion:</strong>   {{ $convocatoria->fecha_finalizacion }}</p>
                     <p><strong>Activa:</strong>   {{  $convocatoria->activa ? 'Activa' : 'Terminada' }}</p>
 
                 </div>
