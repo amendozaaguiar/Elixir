@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-//Model
-use App\Tipos_Documento;
+//Modelos
+use App\TiposDocumento;
 use App\User;
 use Caffeinated\Shinobi\Models\Role;
 
@@ -36,7 +36,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::get();
-        $documentos = Tipos_Documento::where('activo', 1)->get()->pluck('descripcion', 'id');
+        $documentos = TiposDocumento::where('activo', 1)->get()->pluck('descripcion', 'id');
         return view('users.create',compact('roles','documentos'));
     }
 
@@ -104,7 +104,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::with('detail')->find($id);
-        $documentos = Tipos_Documento::where('activo', 1)->get()->pluck('descripcion', 'id');
+        $documentos = TiposDocumento::where('activo', 1)->get()->pluck('descripcion', 'id');
         $roles = Role::get();
         return view('users.edit',compact('user', 'roles','documentos') );
     }
@@ -156,7 +156,7 @@ class UserController extends Controller
 
     public function createExternal()
     {
-        $documentos = Tipos_Documento::where('activo', 1)->get()->pluck('descripcion', 'id');
+        $documentos = TiposDocumento::where('activo', 1)->get()->pluck('descripcion', 'id');
         return view('users.create',compact('documentos'));
     }
 }
