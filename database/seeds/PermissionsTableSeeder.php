@@ -105,38 +105,7 @@ class PermissionsTableSeeder extends Seeder
             'description'   => 'Podría eliminar cualquier convocatoria del sistema',      
         ]);
 
-        /**DETALLE DE CONVOCATORIAS*/
-        Permission::create([
-            'name'          => 'Navegar detalle de convocatorias',
-            'slug'          => 'detalleConvocatorias.index',
-            'description'   => 'Lista y navega todos los detalles convocatorias',
-        ]);
-
-        Permission::create([
-            'name'          => 'Ver de forma individual cada uno de los detalles de una convocatoria',
-            'slug'          => 'detalleConvocatorias.show',
-            'description'   => 'Ve el detalle de forma individual de una convocatoria',            
-        ]);
         
-        Permission::create([
-            'name'          => 'Creación de detalles convocatorias',
-            'slug'          => 'detalleConvocatorias.create',
-            'description'   => 'Podría crear un detalle de convocatorias en el sistema',
-        ]);
-        
-        Permission::create([
-            'name'          => 'Edición del detalle de una convocatoria',
-            'slug'          => 'detalleConvocatorias.edit',
-            'description'   => 'Podría editar cualquier dato del detalle de una convocatoria',
-        ]);
-        
-        Permission::create([
-            'name'          => 'Eliminar detalle de una convocatoria',
-            'slug'          => 'detalleConvocatorias.destroy',
-            'description'   => 'Podría eliminar cualquier detallde de una convocatoria',      
-        ]);
-
-
         /**CAT*/
         Permission::create([
             'name'          => 'Navegar CAT',
@@ -262,6 +231,38 @@ class PermissionsTableSeeder extends Seeder
             'name'          => 'Eliminar aplicantesConvocatoria',
             'slug'          => 'aplicantesConvocatorias.destroy',
             'description'   => 'Podría eliminar cualquiera aplicacion a una convocatoria del sistema',      
+        ]);
+
+
+        /**DETALLE DE CONVOCATORIAS*/
+        Permission::create([
+            'name'          => 'Navegar detalle de convocatorias',
+            'slug'          => 'detalleConvocatorias.index',
+            'description'   => 'Lista y navega todos los detalles convocatorias',
+        ]);
+
+        Permission::create([
+            'name'          => 'Ver de forma individual cada uno de los detalles de una convocatoria',
+            'slug'          => 'detalleConvocatorias.show',
+            'description'   => 'Ve el detalle de forma individual de una convocatoria',            
+        ]);
+        
+        Permission::create([
+            'name'          => 'Creación de detalles convocatorias',
+            'slug'          => 'detalleConvocatorias.create',
+            'description'   => 'Podría crear un detalle de convocatorias en el sistema',
+        ]);
+        
+        Permission::create([
+            'name'          => 'Edición del detalle de una convocatoria',
+            'slug'          => 'detalleConvocatorias.edit',
+            'description'   => 'Podría editar cualquier dato del detalle de una convocatoria',
+        ]);
+        
+        Permission::create([
+            'name'          => 'Eliminar detalle de una convocatoria',
+            'slug'          => 'detalleConvocatorias.destroy',
+            'description'   => 'Podría eliminar cualquier detallde de una convocatoria',      
         ]);
     }
 }

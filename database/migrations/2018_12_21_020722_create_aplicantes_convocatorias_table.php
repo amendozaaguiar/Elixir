@@ -23,29 +23,35 @@ class CreateAplicantesConvocatoriasTable extends Migration
             $table->unsignedInteger('aspirante_id')
                 ->comment('Codigo del aspirante');
 
-            $table->string('hoja_vida',50)
+            $table->string('hoja_vida')
                 ->comment('Url de la hoja de vida');
 
             $table->boolean('pre_seleccionado')
-                ->default(1)
+                ->nullable()
                 ->comment('Preseleccionado 1=si / 0=no');  
 
             $table->text('observaciones')
+                ->nullable()
                 ->comment('Observaciones de la aplicacion a la convocatoria'); 
 
             $table->text('temas_presentacion')
+                ->nullable()
                 ->comment('Tema para la realizacion del ensayo');
 
             $table->text('lugar_presentacion')
+                ->nullable()
                 ->comment('Lugar de presentacion de la entrevista');
 
             $table->dateTime('fecha_hora_presentacion')
+                ->nullable()
                 ->comment('Fecha y hora de presentacion de la entrevista');
 
             $table->unsignedInteger('usuario_reviso_id')
+                ->nullable()
                 ->comment('Codigo del usuario que reviso los convocados');
 
             $table->unsignedInteger('estado_evalucion_id')
+                ->nullable()
                 ->comment('Estado en que se encuentra la convocatoria');
 
             $table->timestamps();

@@ -50,9 +50,10 @@ class UsersTableSeeder extends Seeder
             'description'   => 'Rol por defecto de usuarios que son aspirantes'
         ]);
 
-        //Asignacion del permiso al admin
+        //Asignacion del permiso al aspirante
         DB::table('permission_role')->insert(
-            ['permission_id' => '33', 'role_id' => '2']
+            ['permission_id' => '33', 'role_id' => '2'],
+            ['permission_id' => '36', 'role_id' => '2']
         );
 
 

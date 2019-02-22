@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//Almacenamiento
+use Illuminate\Support\Facades\Storage;
+
+//modelos
+use App\AplicantesConvocatorias;
+
 class AplicantesConvocatoriaController extends Controller
 {
     /**
@@ -34,7 +40,16 @@ class AplicantesConvocatoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Guardo la Hoja de vida y ela URL en ela variable $path
+        $path = Storage::disk('public')->put('hojas_vida', $request->file('hoja_vida'));
+
+        $AplicanteConvocatoria = new AplicantesConvocatorias;
+            $AplicanteConvocatoria->detalle_convocatoria_id = $request->detalleConvocatoria_id;
+            $AplicanteConvocatoria->aspirante_id = $request->user_id;  
+            $AplicanteConvocatoria->hoja_vida = $path;  
+        $AplicanteConvocatoria->save();
+ 
+       return "archivo guardado";
     }
 
     /**
