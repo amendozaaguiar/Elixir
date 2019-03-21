@@ -7,6 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     Rol
+                    @include('layouts.volver')
                 </div>
 
                 <div class="card-body">                                        

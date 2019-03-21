@@ -49,7 +49,7 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         if ($request->password != $request->password_confirm) {
-            return back()->with('info_danger', 'El campo Confirmar Contraseña debe de coincidir con el campo contraseña');
+            return back()->with('danger_warning', 'El campo Confirmar Contraseña debe de coincidir con el campo contraseña');
         }
 
         $user = User::create([

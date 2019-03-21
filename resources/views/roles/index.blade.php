@@ -33,7 +33,7 @@
                                 <td width="10px">
                                     <a href="{{ route('roles.show', $role->id) }}" 
                                     class="btn btn-sm btn-primary">
-                                        ver
+                                        Ver
                                     </a>
                                 </td>
                                 @endcan
@@ -41,7 +41,7 @@
                                 <td width="10px">
                                     <a href="{{ route('roles.edit', $role->id) }}" 
                                     class="btn btn-sm btn-success">
-                                        editar
+                                        Editar
                                     </a>
                                 </td>
                                 @endcan

@@ -7,15 +7,16 @@
             <div class="card">
                 <div class="card-header">
                     Detalle de la convocatoria
-                    @can('detalleConvocatorias.create')
-                    <a href="{{ route('detalleConvocatorias.create', $convocatoria_id) }}" 
-                    class="btn btn-sm btn-success float-right">
+                    @can('detalleConvocatorias.create')                    
+                    <a href="{{ route('detalleConvocatorias.create', $convocatoria_id) }}" class="btn btn-sm btn-success float-right">
                         Crear
                     </a>
                     @endcan
                 </div>
 
                 <div class="card-body">
+                    @include('alerts.info')
+                    @include('alerts.errors')
                     <table class="table table-striped table-hover">
                         <thead class="thead-dark">
                             <tr>
@@ -105,17 +106,9 @@
       </div>
       <div class="modal-body">
         {{ Form::open(['route' => 'aplicantesConvocatorias.store', 'enctype'=>'multipart/form-data']) }}
-        {{ Form::text('detalleConvocatoria_id', null, ['id' => 'detalleConvocatoria_id']) }}
-        {{ Form::text('user_id', auth()->user()->id, ['id' => 'user_id']) }}
-
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-12">
-                {{ Form::label('detalleConvocatoria_id_show', 'Detalle de Convocatoria N°')}}
-                {{ Form::text('detalleConvocatoria_id_show', null, ['class' => 'form-control', 'id' => 'detalleConvocatoria_id_show', 'disabled' => 'true']) }}
-                </div>
-            </div>
-        </div>
+        {{ Form::hidden('detalleConvocatoria_id', null, ['id' => 'detalleConvocatoria_id']) }}
+        {{ Form::hidden('user_id', auth()->user()->id, ['id' => 'user_id']) }}  
+        {{ Form::hidden('detalleConvocatoria_id_show', null, ['class' => 'form-control', 'id' => 'detalleConvocatoria_id_show', 'disabled' => 'true']) }}
         <div class="form-group">
             <div class="row">
                 <div class="col-md-12">

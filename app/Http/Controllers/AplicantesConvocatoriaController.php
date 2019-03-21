@@ -8,7 +8,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 //modelos
+use App\Convocatorias;
 use App\AplicantesConvocatorias;
+
+//Request
+use App\Http\Requests\AplicantesConvocatoriaRequest;
 
 class AplicantesConvocatoriaController extends Controller
 {
@@ -38,18 +42,29 @@ class AplicantesConvocatoriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AplicantesConvocatoriaRequest $request)
     {
         //Guardo la Hoja de vida y ela URL en ela variable $path
-        $path = Storage::disk('public')->put('hojas_vida', $request->file('hoja_vida'));
+        $AplicacionesAspirante = AplicantesConvocatorias::where(['detalle_Convocatoria_id'=>$request->detalleConvocatoria_id,'aspirante_id'=>$request->user_id])->count();
 
-        $AplicanteConvocatoria = new AplicantesConvocatorias;
-            $AplicanteConvocatoria->detalle_convocatoria_id = $request->detalleConvocatoria_id;
-            $AplicanteConvocatoria->aspirante_id = $request->user_id;  
-            $AplicanteConvocatoria->hoja_vida = $path;  
-        $AplicanteConvocatoria->save();
- 
-       return "archivo guardado";
+        //Si el usuario ya aplico a la convocatoria, no se permite y se retorna al formulario con un mensaje
+        if($AplicacionesAspirante>=1) {
+            return back()->with('danger_warning', 'Ya has aplicado a esta convocatoria, no puede volver a aplicar.');;
+        }else{
+            $path = Storage::disk('public')->put('hojas_vida', $request->file('hoja_vida'));
+
+            $AplicanteConvocatoria = new AplicantesConvocatorias;
+                $AplicanteConvocatoria->detalle_convocatoria_id = $request->detalleConvocatoria_id;
+                $AplicanteConvocatoria->aspirante_id = $request->user_id;  
+                $AplicanteConvocatoria->hoja_vida = $path;  
+            $AplicanteConvocatoria->save();
+
+            //Retorno a la convocatoria
+            $convocatorias = Convocatorias::paginate(10);
+
+            return redirect()->route('home')->with('info', 'Aplicacion a convocatoria exitosa');
+        }
+        
     }
 
     /**

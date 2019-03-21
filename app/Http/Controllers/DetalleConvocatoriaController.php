@@ -74,7 +74,6 @@ class DetalleConvocatoriaController extends Controller
     {
         $detalleConvocatoria = DetalleConvocatorias::with('convocatoria','cat','programa','curso')
             ->find($id);
-        //dd($detalleConvocatorias);
         return view('detalleConvocatorias.show', compact('detalleConvocatoria'));
     }
 

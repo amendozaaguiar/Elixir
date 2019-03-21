@@ -5,7 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Convocatoria</div>
+                <div class="card-header">
+                    Convocatoria
+                    @include('layouts.volver')
+                </div>
 
                 <div class="card-body">                                        
                     <p><strong>Codigo CAT:</strong>   {{ $cat->id }}</p>

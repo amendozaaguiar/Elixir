@@ -5,7 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Roles</div>
+                <div class="card-header">
+                    Roles
+                    @include('layouts.volver')
+                </div>
 
                 <div class="card-body">                    
                     {{ Form::open(['route' => 'roles.store']) }}

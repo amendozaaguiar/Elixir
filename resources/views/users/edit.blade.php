@@ -5,7 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Usuario {{ $user->attributes }}</div>
+                <div class="card-header">
+                    Usuario {{ $user->attributes }}
+                    @include('layouts.volver')
+                </div>
                 @include('alerts.errors')
                 @include('alerts.info')
                 <div class="card-body">                    
