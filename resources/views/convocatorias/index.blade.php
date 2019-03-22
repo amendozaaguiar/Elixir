@@ -17,6 +17,7 @@
 
                 <div class="card-body">
                     @include('alerts.info')
+                    @include('alerts.errors') 
                     <table class="table table-striped table-hover">
                         <thead class="thead-dark">
                             <tr>

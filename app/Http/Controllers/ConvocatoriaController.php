@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 //Modelos
 use App\Convocatorias;
 
+//Request
+use App\Http\Requests\ConvocatoriaRequest;
+
 class ConvocatoriaController extends Controller
 {
     /**
@@ -36,7 +39,7 @@ class ConvocatoriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ConvocatoriaRequest $request)
     {
         $convocatoria = new Convocatorias;
             $convocatoria->descripcion = $request->descripcion;
@@ -45,7 +48,7 @@ class ConvocatoriaController extends Controller
             $convocatoria->activa =  $request->activa;        
         $convocatoria->save();
 
-        return redirect()->route('convocatorias.edit', $convocatoria->id);
+        return redirect()->route('convocatorias.index')->with('info','Se ha creado correctamente la convocatoria');
     }
 
     /**
@@ -79,7 +82,7 @@ class ConvocatoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ConvocatoriaRequest $request, $id)
     {
         $convocatoria = Convocatorias::find($id);
             $convocatoria->descripcion = $request->descripcion;
@@ -88,7 +91,7 @@ class ConvocatoriaController extends Controller
             $convocatoria->activa = $request->activa;
         $convocatoria->save();
 
-        return redirect()->route('convocatorias.edit', $convocatoria->id);
+        return redirect()->route('convocatorias.index')->with('info','Se han actualizado correctamente los datos de la convocatoria');
     }
 
     /**
@@ -101,6 +104,7 @@ class ConvocatoriaController extends Controller
     {
         $Convocatoria = Convocatorias::find($id);
         $Convocatoria->delete();
-        return back();
+        
+        return back()->with('info', 'Se ha eliminado correctamente la convocatoria');
     }
 }
