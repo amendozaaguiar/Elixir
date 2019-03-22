@@ -10,6 +10,9 @@ use App\Cat;
 use App\Programas;
 use App\Cursos;
 
+//Request
+use App\Http\Requests\DetalleConvocatoriaRequest;
+
 class DetalleConvocatoriaController extends Controller
 {
     /**
@@ -51,8 +54,11 @@ class DetalleConvocatoriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DetalleConvocatoriaRequest $request)
     {
+        
+        $convocatoria_id = $request->convocatoria_id;
+        
         $detalleConvocatoria = DetalleConvocatorias::create([
             'convocatoria_id' => $request->convocatoria_id,
             'cat_id' => $request->cat_id,
@@ -61,7 +67,8 @@ class DetalleConvocatoriaController extends Controller
             'perfil' => $request->perfil,
             'requisitos' => $request->requisitos,
         ]);
-        return redirect()->route('detalleConvocatorias.edit', $detalleConvocatoria->id);
+
+        return redirect()->route('detalleConvocatorias.index',compact('convocatoria_id'))->with('info','Se ha creado correctame el detalle de la convocatoria');
     }
 
     /**
@@ -104,7 +111,7 @@ class DetalleConvocatoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DetalleConvocatoriaRequest $request, $id)
     {
         $detalleConvocatoria = DetalleConvocatorias::find($id);
             $detalleConvocatoria->cat_id = $request->cat_id;
@@ -114,7 +121,9 @@ class DetalleConvocatoriaController extends Controller
             $detalleConvocatoria->requisitos = $request->requisitos;
         $detalleConvocatoria->save();
 
-        return redirect()->route('detalleConvocatorias.edit', $detalleConvocatoria->id);
+        $convocatoria_id = $detalleConvocatoria->convocatoria_id;
+
+        return redirect()->route('detalleConvocatorias.index',compact('convocatoria_id'))->with('info','Se ha actualizado correctame los datos del detalle de la convocatoria');
     }
 
     /**
@@ -127,6 +136,6 @@ class DetalleConvocatoriaController extends Controller
     {
         $detalleConvocatoria = DetalleConvocatorias::find($id);
         $detalleConvocatoria->delete();
-        return back();
+        return back()->with('info','Se ha eliminado correctame el detalle de la convocatoria');
     }
 }
