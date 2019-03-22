@@ -10,7 +10,9 @@
                     @include('layouts.volver')
                 </div>
 
-                <div class="card-body">                    
+                <div class="card-body">
+                    @include('alerts.info')
+                    @include('alerts.errors')                     
                     {{ Form::open(['route' => 'convocatorias.store']) }}
 
                        @include('convocatorias.partials.form')
