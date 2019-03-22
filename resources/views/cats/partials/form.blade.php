@@ -18,7 +18,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			{{ Form::label('email', 'Correo electronico') }}
-			{{ Form::text('email', null, ['class' => 'form-control', 'id' => 'email']) }}
+			{{ Form::email('email', null, ['class' => 'form-control', 'id' => 'email']) }}
 		</div>
 	</div>
 </div>

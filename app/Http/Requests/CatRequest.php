@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AplicantesConvocatoriaRequest extends FormRequest
+class CatRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,11 @@ class AplicantesConvocatoriaRequest extends FormRequest
     public function attributes()
     {
         return [
-            'hoja_vida' => 'Anexar Hoja de Vida',
+            'nombre' => 'nombre CAT',
+            'direccion' => 'dirección',
+            'email' => 'correo electronico',
+            'departamento_id' => 'departamento',
+            'municipio_id' => 'municipio',
         ];
     }
 
@@ -36,7 +40,12 @@ class AplicantesConvocatoriaRequest extends FormRequest
     public function rules()
     {
         return [
-            'hoja_vida' => 'required|mimes:pdf',
+            'nombre' => 'required|min:2|max:50',
+            'direccion' => 'required|min:2',
+            'email' => 'required|max:50',
+            'departamento_id' => 'required',
+            'municipio_id' => 'required',
+            'activo' => 'required'
         ];
     }
 }

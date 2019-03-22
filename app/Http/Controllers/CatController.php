@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+//Models
 use App\Cat;
 use App\Departamentos;
 use App\Municipios;
+
+//Request
+use App\Http\Requests\CatRequest;
 
 class CatController extends Controller
 {
@@ -41,7 +46,7 @@ class CatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CatRequest $request)
     {
         $cat = Cat::create([
             'nombre' => $request->nombre,
@@ -51,7 +56,7 @@ class CatController extends Controller
             'municipio_id' => $request->municipio_id,
             'activo' => $request->activo,
         ]);
-        return redirect()->route('cats.edit', $cat->id);
+        return redirect()->route('cats.index')->with('info','Se ha creado correctamente el CAT');
     }
 
     /**
@@ -91,7 +96,7 @@ class CatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CatRequest $request, $id)
     {
          $cat = Cat::find($id);
             $cat->nombre = $request->nombre;
@@ -102,7 +107,7 @@ class CatController extends Controller
             $cat->activo = $request->activo;
         $cat->save();
 
-        return redirect()->route('cats.edit', $cat->id);
+        return redirect()->route('cats.index')->with('info','Se ha actualizado correctamente los datos del CAT');
     }
 
     /**
@@ -115,6 +120,7 @@ class CatController extends Controller
     {
         $cat = Cat::find($id);
         $cat->delete();
-        return back();
+        
+        return back()->with('info','Se ha eliminado correctamente el CAT');
     }
 }
