@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Programas;
 
+//Request
+use App\Http\Requests\ProgramaRequest;
+
 class ProgramaController extends Controller
 {
     /**
@@ -34,13 +37,14 @@ class ProgramaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProgramaRequest $request)
     {
         $programa = Programas::create([
             'nombre' => $request->nombre,
             'activo' => $request->activo,
         ]);
-        return redirect()->route('programas.edit', $programa->id);
+
+        return redirect()->route('programas.index')->with('info', 'Se ha creado correctamente el programa');
     }
 
     /**
@@ -74,14 +78,14 @@ class ProgramaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProgramaRequest $request, $id)
     {
         $programa = Programas::find($id);
             $programa->nombre = $request->nombre;
             $programa->activo = $request->activo;
         $programa->save();
 
-        return redirect()->route('programas.edit', $programa->id);
+        return redirect()->route('programas.index')->with('info', 'Se ha actualizado correctamente los datos del programa');
     }
 
     /**
@@ -94,6 +98,7 @@ class ProgramaController extends Controller
     {
         $programa = Programas::find($id);
         $programa->delete();
-        return back();
+
+        return back()->with('info','Se ha eliminado correctamente el programa');
     }
 }
