@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProgramaRequest extends FormRequest
+class CursoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,10 @@ class ProgramaRequest extends FormRequest
     public function attributes()
     {
         return [
-            'nombre' => 'nombre',
-            'activo'  => 'activo', 
+            'programa_id' => 'programa',
+            'nombre'  => 'nombre',
+            'perfil' => 'perfil',
+            'activo' => 'activo'
         ];
     }
 
@@ -37,8 +39,9 @@ class ProgramaRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|min:2|max:50',
-            'activo'  => 'required', 
+            'programa_id' => 'required',
+            'nombre'  => 'required|min:2|max:50',
+            'activo' => 'required'
         ];
     }
 }

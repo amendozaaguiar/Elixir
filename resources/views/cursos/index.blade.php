@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    cursos
+                    Cursos
                     @can('cursos.create')
                     <a href="{{ route('cursos.create') }}" class="btn btn-sm btn-primary float-right">
                         Crear
@@ -15,6 +15,8 @@
                 </div>
 
                 <div class="card-body">
+                    @include('alerts.info')
+                    @include('alerts.errors') 
                     <table class="table table-striped table-hover">
                         <thead class="thead-dark">
                             <tr>

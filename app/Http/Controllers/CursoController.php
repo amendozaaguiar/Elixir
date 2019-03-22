@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Cursos;
 use App\Programas;
 
+//Request
+use App\Http\Requests\CursoRequest;
+
 class CursoController extends Controller
 {
     /**
@@ -37,7 +40,7 @@ class CursoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CursoRequest $request)
     {
         $curso = Cursos::create([
             'programa_id' => $request->programa_id,
@@ -45,7 +48,7 @@ class CursoController extends Controller
             'perfil' => $request->perfil,
             'activo' => $request->activo,
         ]);
-        return redirect()->route('cursos.edit', $curso->id);
+        return redirect()->route('cursos.index')->with('info', 'Se ha creado correctamente el curso');
     }
 
     /**
@@ -81,7 +84,7 @@ class CursoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CursoRequest $request, $id)
     {
         $curso = Cursos::find($id);
             $curso->programa_id = $request->programa_id;
@@ -90,7 +93,7 @@ class CursoController extends Controller
             $curso->activo = $request->activo;
         $curso->save();
 
-        return redirect()->route('cursos.edit', $curso->id);
+        return redirect()->route('cursos.index')->with('info', 'Se han actualizado correctamente los datos del curso');
     }
 
     /**
@@ -103,7 +106,8 @@ class CursoController extends Controller
     {
         $curso = Cursos::find($id);
         $curso->delete();
-        return back();
+        
+        return back()->with('info','Se ha eliminado correctamente el curso');
     }
 
     /**
