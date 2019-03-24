@@ -59,8 +59,12 @@ class ConvocatoriaController extends Controller
      */
     public function show($id)
     {
-        $convocatoria = Convocatorias::find($id);
-        return view('convocatorias.show', compact('convocatoria'));
+        $Convocatoria = Convocatorias::with('detalleConvocatoria.aplicantes.usuario.detail.tipoDocumento','detalleConvocatoria.curso.programa')
+            ->where('id',$id)
+            ->get();
+        //dd($Convocatoria);
+        
+        return view('convocatorias.show', compact('Convocatoria'));
     }
 
     /**

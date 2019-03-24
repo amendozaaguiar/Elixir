@@ -106,7 +106,6 @@ Route::middleware(['auth'])->group(function () {
 		->name('convocatorias.destroy')
 		->middleware('permission:convocatorias.destroy');
 
-
 	//DETALLE DE CONVOCATORIAS
 	Route::get('convocatorias/{convocatoria}/detalle', 'DetalleConvocatoriaController@index')
 		->name('detalleConvocatorias.index')

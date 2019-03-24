@@ -111,7 +111,8 @@
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/select2.min.js') }}"></script>
-    <script src="{{ asset('js/comun/comun.js') }}"></script>    
+    <script src="{{ asset('js/comun/comun.js') }}"></script> 
+    <script src="{{ asset('js/fontawesome.js' )}}"></script> 
     <!--Se aplica el selected 2 para todos-->
     <script type="text/javascript">
         $(document).ready(function() {

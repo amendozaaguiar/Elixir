@@ -13,11 +13,11 @@ class TiposDocumentoTableSeeder extends Seeder
     {
         //Tipos de documento
         DB::table('tipos_documento')->insert([
-        	['descripcion' => 'CEDULA DE CIUDADANIA', 	'activo' => '1'],
-        	['descripcion' => 'TARJETA DE IDENTIDAD', 	'activo' => '1'],
-        	['descripcion' => 'CEDULA DE EXTRANJERIA', 	'activo' => '1'],
-        	['descripcion' => 'PASAPORTE', 				'activo' => '1'],
-        	['descripcion' => 'PEP RAMV', 				'activo' => '1'],
+        	['abreviacion' => 'CC',    'descripcion' => 'CEDULA DE CIUDADANIA', 	'activo' => '1'],
+        	['abreviacion' => 'TI',    'descripcion' => 'TARJETA DE IDENTIDAD', 	'activo' => '1'],
+        	['abreviacion' => 'CE',    'descripcion' => 'CEDULA DE EXTRANJERIA', 	'activo' => '1'],
+        	['abreviacion' => 'PAS',   'descripcion' => 'PASAPORTE', 				'activo' => '1'],
+        	['abreviacion' => 'PEP',   'descripcion' => 'PEP RAMV', 				'activo' => '1'],
         ]);
     }
 }

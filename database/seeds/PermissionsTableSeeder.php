@@ -105,6 +105,12 @@ class PermissionsTableSeeder extends Seeder
             'description'   => 'Podría eliminar cualquier convocatoria del sistema',      
         ]);
 
+         Permission::create([
+            'name'          => 'Eliminar convocatorias',
+            'slug'          => 'convocatorias.show.aspirantes',
+            'description'   => 'Puede ver todos los aspirantes a la convocatoria',      
+        ]);
+
         
         /**CAT*/
         Permission::create([

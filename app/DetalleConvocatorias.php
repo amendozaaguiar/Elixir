@@ -23,9 +23,13 @@ class DetalleConvocatorias extends Model
         'perfil',
         'requisitos'
     ];
-    
 
-    //Convocatorias
+    //Aspirantes
+    public function aplicantes(){
+        return $this->hasMany(AplicantesConvocatorias::class, 'detalle_convocatoria_id', 'id');
+    }    
+
+    //Convocatoria
     function convocatoria(){
         return $this->hasOne(Convocatorias::class, 'id', 'convocatoria_id');
     }

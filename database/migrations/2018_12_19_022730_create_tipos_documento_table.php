@@ -17,6 +17,9 @@ class CreateTiposDocumentoTable extends Migration
             $table->increments('id')
                 ->comment('Codigo del tipo de documento');
 
+            $table->string('abreviacion',3)
+                ->comment('Abreviacion del tipo de documento');
+
             $table->string('descripcion',50)
                 ->comment('Descripcion');
 

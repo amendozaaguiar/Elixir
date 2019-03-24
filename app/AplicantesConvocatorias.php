@@ -17,4 +17,8 @@ class AplicantesConvocatorias extends Model
         'aspirante_id',
         'hoja_vida'
     ];
+
+    function usuario(){
+        return $this->hasOne(User::class, 'id', 'aspirante_id');
+    }
 }

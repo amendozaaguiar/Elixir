@@ -19,4 +19,28 @@ class Convocatorias extends Model
         'fecha_finalizacion',
         'activa'
     ];
+
+     /**
+     * Obtener el detalle de la convocatoria.
+     */
+    public function detalleConvocatoria(){
+        return $this->hasMany(DetalleConvocatorias::class, 'convocatoria_id', 'id');
+    }
+
+    /**
+     * Obtener los aspirantes.
+     */
+    public function aspirantes()
+    {
+        return $this->hasManyThrough(
+            'App\AplicantesConvocatorias',
+            'App\DetalleConvocatorias',    
+            'convocatoria_id',
+            'detalle_convocatoria_id',
+            'id',
+            'id'
+        );
+    }
+
+
 }

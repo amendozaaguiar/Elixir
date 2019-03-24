@@ -22,9 +22,15 @@ class User_Detail extends Model
         'segundo_apellido',
     ];
 
+    //Dato principal del usuario
     public function user()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    //Tipo de documento
+    function tipoDocumento(){
+        return $this->hasOne(TiposDocumento::class, 'id', 'tipo_documento_id');
     }
 
 }
