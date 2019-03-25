@@ -27,8 +27,7 @@ class CreateAplicantesConvocatoriasTable extends Migration
                 ->comment('Url de la hoja de vida');
 
             $table->boolean('pre_seleccionado')
-                ->nullable()
-                ->comment('Preseleccionado 1=si / 0=no');  
+                ->comment('Preseleccionado 1=si / 0=no /2=No indicado');  
 
             $table->text('observaciones')
                 ->nullable()

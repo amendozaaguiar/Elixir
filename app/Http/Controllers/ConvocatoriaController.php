@@ -30,7 +30,7 @@ class ConvocatoriaController extends Controller
      */
     public function create()
     {   
-        return view('convocatorias.create',compact('programas','cursos','cat'));
+        return view('convocatorias.create');
     }
 
     /**

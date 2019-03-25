@@ -24,7 +24,12 @@ class AplicantesConvocatoriaRequest extends FormRequest
     public function attributes()
     {
         return [
-            'hoja_vida' => 'Anexar Hoja de Vida',
+            'hoja_vida' => 'anexar hoja de vida',
+            'pre_seleccionado' => 'Pre-Seleccionado',
+            'observaciones' => 'observaciones',
+            'fecha_hora_presentacion' => 'fecha y hora de presentacion',
+            'temas_presentacion' => 'temas de presentacion',
+            'lugar_presentacion' => 'lugar de presentacion',
         ];
     }
 

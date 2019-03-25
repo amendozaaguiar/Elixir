@@ -15,7 +15,13 @@ class AplicantesConvocatorias extends Model
     protected $fillable = [
         'detalle_convocatoria_id',
         'aspirante_id',
-        'hoja_vida'
+        'pre_seleccionado',
+        'observaciones',
+        'temas_presentacion',
+        'lugar_presentacion',
+        'fecha_hora_presentacion',
+        'usuario_reviso_id',
+        'estado_evalucion_id'
     ];
 
     function usuario(){

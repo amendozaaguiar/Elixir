@@ -52,11 +52,18 @@ function getMunicipios(){
 
 /**MODAL PARA APLICACION A CONVOCATORIRAS*/
 $('#AplicarConvocatoriaModal').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget); // Button that triggered the modal
-  var recipient = button.data('convocatoria'); // Extract info from data-* attributes
-  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-  var modal = $(this);
+  button = $(event.relatedTarget);
+  recipient = button.data('convocatoria');
+
+  modal = $(this);
   modal.find('.modal-body #detalleConvocatoria_id').val(recipient);
   modal.find('.modal-body #detalleConvocatoria_id_show').val(recipient);
+})
+
+/**MODAL PARA Pre-Seleccion de aspirantes*/
+$('#preSeleccionModal').on('show.bs.modal', function (event) {      
+    button = $(event.relatedTarget);
+    recipient = button.data('aplicacion');    
+    modal = $(this);
+    modal.find('.modal-body #id').val(recipient);
 })
