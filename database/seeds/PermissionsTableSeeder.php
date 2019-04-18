@@ -105,7 +105,7 @@ class PermissionsTableSeeder extends Seeder
             'description'   => 'Podría eliminar cualquier convocatoria del sistema',      
         ]);
 
-         Permission::create([
+        Permission::create([
             'name'          => 'Eliminar convocatorias',
             'slug'          => 'convocatorias.show.aspirantes',
             'description'   => 'Puede ver todos los aspirantes a la convocatoria',      
@@ -225,6 +225,37 @@ class PermissionsTableSeeder extends Seeder
             'name'          => 'Pre-seleccion de aspirantes',
             'slug'          => 'aplicantesConvocatorias.edit.preselected',
             'description'   => 'Puede realizar la preseleccion de los aspirantes (Permite la evalucion de las hojas de vida)',
+        ]);
+
+        /**EVALUACIONES DE PRE-SELECCIONADOS*/
+        Permission::create([
+            'name'          => 'Navegar evaluaciones',
+            'slug'          => 'evaluacionesAspirantes.index',
+            'description'   => 'Lista y navega todos los evaluaciones del sistema',
+        ]);
+
+        Permission::create([
+            'name'          => 'Ver detalle de una evaluacion',
+            'slug'          => 'evaluacionesAspirantes.show',
+            'description'   => 'Ve en detalle cada evaluacion del sistema',            
+        ]);
+        
+        Permission::create([
+            'name'          => 'Creación de evaluaciones',
+            'slug'          => 'evaluacionesAspirantes.create',
+            'description'   => 'Podría crear nuevas evaluaciones en el sistema',
+        ]);
+        
+        Permission::create([
+            'name'          => 'Edición de evaluaciones',
+            'slug'          => 'evaluacionesAspirantes.edit',
+            'description'   => 'Podría editar cualquier dato de una evaluacion del sistema',
+        ]);
+
+        Permission::create([
+            'name'          => 'Eliminar evaluaciones',
+            'slug'          => 'evaluacionesAspirantes.show.aspirantes',
+            'description'   => 'Puede ver todos los aspirantes a la evaluacion',      
         ]);
 
         /**DETALLE DE CONVOCATORIAS*/

@@ -154,7 +154,7 @@
                         {{ Form::label('pregrado', 'Titulo pregado') }}
                     </div>
                     <div class="col-md-2">                    
-                        {{ Form::input('number','pregrado', '0.00', ['class' => 'form-control', 'id' => 'pregrado', 'step' => '0.01', 'min' => '0', 'max' => '4', 'onKeyup' => 'numeroDecimal(this)', 'onBlur' => 'calcularTotal()', 'autocomplete' => 'off']) }}
+                        {{ Form::input('number','pregrado', '0.00', ['class' => 'form-control', 'id' => 'pregrado', 'step' => '0.01', 'min' => '0', 'max' => '4', 'onKeyup' => 'numeroDecimal(this)', 'onBlur' => 'calcularTotalHV()', 'autocomplete' => 'off']) }}
                     </div>
                 </div>
 
@@ -163,7 +163,7 @@
                         {{ Form::label('especialista', 'Titulo especialista') }}
                     </div>
                     <div class="col-md-2">                      
-                        {{ Form::input('number','especialista', '0.00', ['class' => 'form-control', 'id' => 'especialista', 'step' => '0.01', 'min' => '0', 'max' => '6', 'onKeyup' => 'numeroDecimal(this)', 'onBlur' => 'calcularTotal()', 'autocomplete' => 'off'] ) }}
+                        {{ Form::input('number','especialista', '0.00', ['class' => 'form-control', 'id' => 'especialista', 'step' => '0.01', 'min' => '0', 'max' => '6', 'onKeyup' => 'numeroDecimal(this)', 'onBlur' => 'calcularTotalHV()', 'autocomplete' => 'off'] ) }}
                     </div>
                 </div>
 
@@ -172,7 +172,7 @@
                         {{ Form::label('magister_esp_medica', 'Titulo magister o especialización medica') }}
                     </div>
                     <div class="col-md-2">                     
-                        {{ Form::input('number','magister_esp_medica', '0.00', ['class' => 'form-control', 'id' => 'magister_esp_medica', 'step' => '0.01', 'min' => '0', 'max' => '8', 'onKeyup' => 'numeroDecimal(this)', 'onBlur' => 'calcularTotal()', 'autocomplete' => 'off'] ) }}
+                        {{ Form::input('number','magister_esp_medica', '0.00', ['class' => 'form-control', 'id' => 'magister_esp_medica', 'step' => '0.01', 'min' => '0', 'max' => '8', 'onKeyup' => 'numeroDecimal(this)', 'onBlur' => 'calcularTotalHV()', 'autocomplete' => 'off'] ) }}
                     </div>
                 </div>
 
@@ -181,7 +181,7 @@
                         {{ Form::label('doctorado', 'Titulo de doctorado')}}
                     </div>
                     <div class="col-md-2">   
-                        {{ Form::input('number','doctorado', '0.00', ['class' => 'form-control', 'id' => 'doctorado', 'step' => '0.01', 'min' => '0', 'max' => '12', 'onKeyup' => 'numeroDecimal(this)', 'onBlur' => 'calcularTotal()', 'autocomplete' => 'off'] ) }}
+                        {{ Form::input('number','doctorado', '0.00', ['class' => 'form-control', 'id' => 'doctorado', 'step' => '0.01', 'min' => '0', 'max' => '12', 'onKeyup' => 'numeroDecimal(this)', 'onBlur' => 'calcularTotalHV()', 'autocomplete' => 'off'] ) }}
                     </div>
                 </div>
 
@@ -190,7 +190,7 @@
                         {{ Form::label('seminarios_cursos', 'Seminario Docencia Distancia UniTolima y Cursos en el área de pedagogía')}}
                     </div>
                     <div class="col-md-2"> 
-                        {{ Form::input('number','seminarios_cursos', '0.00', ['class' => 'form-control', 'id' => 'seminarios_cursos', 'step' => '0.01', 'min' => '0', 'max' => '2', 'onKeyup' => 'numeroDecimal(this)', 'onBlur' => 'calcularTotal()', 'autocomplete' => 'off'] ) }}
+                        {{ Form::input('number','seminarios_cursos', '0.00', ['class' => 'form-control', 'id' => 'seminarios_cursos', 'step' => '0.01', 'min' => '0', 'max' => '2', 'onKeyup' => 'numeroDecimal(this)', 'onBlur' => 'calcularTotalHV()', 'autocomplete' => 'off'] ) }}
                     </div>
                 </div>
 
@@ -199,7 +199,7 @@
                         {{ Form::label('experiencia_docencia_universitaria', 'Experiencia en docencia universitaria')}}
                     </div>
                     <div class="col-md-2"> 
-                        {{ Form::input('number','experiencia_docencia_universitaria', '0.00', ['class' => 'form-control', 'id' => 'experiencia_docencia_universitaria', 'step' => '0.01', 'min' => '0', 'max' => '10', 'onKeyup' => 'numeroDecimal(this)', 'onBlur' => 'calcularTotal()', 'autocomplete' => 'off'] ) }}
+                        {{ Form::input('number','experiencia_docencia_universitaria', '0.00', ['class' => 'form-control', 'id' => 'experiencia_docencia_universitaria', 'step' => '0.01', 'min' => '0', 'max' => '10', 'onKeyup' => 'numeroDecimal(this)', 'onBlur' => 'calcularTotalHV()', 'autocomplete' => 'off'] ) }}
                     </div>                
                 </div>
 
@@ -208,7 +208,7 @@
                         {{ Form::label('produccion_intelectual', 'Produccion intelectual') }}
                     </div>
                     <div class="col-md-2"> 
-                        {{ Form::input('number','produccion_intelectual', '0.00', ['class' => 'form-control', 'id' => 'produccion_intelectual', 'step' => '0.01', 'min' => '0', 'max' => '6', 'onKeyup' => 'numeroDecimal(this)', 'onBlur' => 'calcularTotal()', 'autocomplete' => 'off'] ) }}
+                        {{ Form::input('number','produccion_intelectual', '0.00', ['class' => 'form-control', 'id' => 'produccion_intelectual', 'step' => '0.01', 'min' => '0', 'max' => '6', 'onKeyup' => 'numeroDecimal(this)', 'onBlur' => 'calcularTotalHV()', 'autocomplete' => 'off'] ) }}
                     </div>
                 </div>
 
@@ -217,7 +217,7 @@
                         {{ Form::label('experiencia_profesional', 'Experiencia profesional') }}
                     </div>
                     <div class="col-md-2">
-                        {{ Form::input('number','experiencia_profesional', '0.00', ['class' => 'form-control', 'id' => 'experiencia_profesional', 'step' => '0.01', 'min' => '0', 'max' => '4', 'onKeyup' => 'numeroDecimal(this)', 'onBlur' => 'calcularTotal()', 'autocomplete' => 'off'] ) }}
+                        {{ Form::input('number','experiencia_profesional', '0.00', ['class' => 'form-control', 'id' => 'experiencia_profesional', 'step' => '0.01', 'min' => '0', 'max' => '4', 'onKeyup' => 'numeroDecimal(this)', 'onBlur' => 'calcularTotalHV()', 'autocomplete' => 'off'] ) }}
                     </div>
                 </div>
                 <div class="form-row">  

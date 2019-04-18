@@ -18,7 +18,7 @@
                 <div class="card-body">
                     @include('alerts.info')
                     @include('alerts.errors') 
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover table-sm">
                         <thead class="thead-dark">
                             <tr>
                                 <th>id</th>
@@ -27,7 +27,7 @@
                                 <th>Fecha de Inicio</th>
                                 <th>Fecha de Finalización</th>
                                 <th>Estado</th>
-                                <th colspan="4">&nbsp;</th>
+                                <th colspan="5">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,7 +44,16 @@
                                 <td width="10px">
                                     <a href="{{ route('convocatorias.show', $convocatoria->id) }}" 
                                     class="btn btn-sm btn btn-secondary">
-                                        Ver
+                                        Pre-seleccionar
+                                    </a>
+                                </td>
+                                @endcan
+
+                                 @can('evaluacionesAplicantes.show')
+                                <td width="10px">
+                                    <a href="{{ route('evaluacionesAspirantes.index', $convocatoria->id) }}" 
+                                    class="btn btn-sm btn btn-dark">
+                                        Evaluar
                                     </a>
                                 </td>
                                 @endcan

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEvaluacionesConvocatoriasTable extends Migration
+class CreateEvaluacionesAspirantesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateEvaluacionesConvocatoriasTable extends Migration
     public function up()
     {
         //computar entre total entrevista y hv para dar el total Final
-        Schema::create('evaluaciones_convocatorias', function (Blueprint $table) {
+        Schema::create('evaluaciones_aspirantes', function (Blueprint $table) {
             $table->increments('id')
                 ->comment('Codigo de la evaluacion de la convocatoria');
             

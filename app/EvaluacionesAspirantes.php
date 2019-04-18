@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EvaluacionesConvocatorias extends Model
+class EvaluacionesAspirantes extends Model
 {
     //Tabla
-    protected $table = 'evaluaciones_convocatorias';
+    protected $table = 'evaluaciones_aspirantes';
 
     //Campos accesibles
     protected $fillable = [
@@ -29,4 +29,10 @@ class EvaluacionesConvocatorias extends Model
         'jurado_3',
         'total_entrevista'
     ];
+
+    //Aplicante
+    function aplicante(){
+        return $this->hasOne(AplicantesConvocatorias::class, 'id', 'aplicantes_convocatorias_id');
+    }
+ 
 }

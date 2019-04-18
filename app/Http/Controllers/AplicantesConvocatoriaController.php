@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 //modelos
 use App\Convocatorias;
 use App\AplicantesConvocatorias;
-use App\EvaluacionesConvocatorias;
+use App\EvaluacionesAspirantes;
 
 //Request
 use App\Http\Requests\AplicantesConvocatoriaRequest;
@@ -56,7 +56,7 @@ class AplicantesConvocatoriaController extends Controller
      */
     public function updatePreSelected(Request $request)
     {     
-        $EvaluacionConvocatoria = EvaluacionesConvocatorias::where('aplicantes_convocatorias_id',$request->id)->first();
+        $EvaluacionConvocatoria = EvaluacionesAspirantes::where('aplicantes_convocatorias_id',$request->id)->first();
 
         //Si existe un registro, se actualiza, si no se actualiza        
         if($EvaluacionConvocatoria){
@@ -72,7 +72,7 @@ class AplicantesConvocatoriaController extends Controller
                 $EvaluacionConvocatoria->total_hoja_vida = number_format($request->total_hoja_vida,2,'.',''); 
             $EvaluacionConvocatoria->save();
         }else{            
-            $EvaluacionConvocatoria = new EvaluacionesConvocatorias;
+            $EvaluacionConvocatoria = new EvaluacionesAspirantes;
                 $EvaluacionConvocatoria->aplicantes_convocatorias_id = $request->id;
                 $EvaluacionConvocatoria->pregrado = number_format($request->pregrado,2,'.','');
                 $EvaluacionConvocatoria->especialista = number_format($request->especialista,2,'.','');

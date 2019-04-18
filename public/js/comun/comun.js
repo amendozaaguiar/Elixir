@@ -11,7 +11,7 @@ function numeroDecimal(elemento){
 
 
 /**CALCULO DEL VALOR PARA LA HOJA DE VIDA*/
-function calcularTotal(){
+function calcularTotalHV(){
     total = parseFloat(0.00);
     total += parseFloat($("#pregrado").val());
     total += parseFloat($("#especialista").val());
@@ -23,6 +23,22 @@ function calcularTotal(){
     total += parseFloat($("#experiencia_profesional").val());
     total /= 8;
     $("#total_hoja_vida").val(total.toFixed(2));
+}
+
+
+/**CALCULO DEL VALOR PARA LA ENTREVISTA*/
+function calcularTotaEntrevista(){
+    total = parseFloat(0.00);
+    total += parseFloat($("#jurado_1").val());
+    total += parseFloat($("#jurado_2").val());
+    total += parseFloat($("#jurado_3").val());
+    
+    if(parseFloat($("#jurado_3").val()) > 0){
+        total /= 3;
+    }else if(parseFloat($("#jurado_2").val()) > 0){
+        total /= 2;
+    }
+    $("#total_entrevista").val(total.toFixed(2));
 }
 
 /**CONSULTAR CURSOS DEPENDIENDO DEL PROGRAMA*/

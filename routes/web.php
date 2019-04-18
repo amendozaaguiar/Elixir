@@ -270,4 +270,23 @@ Route::middleware(['auth'])->group(function () {
 	Route::post('aplicantesConvocatorias/preseleccion', 'AplicantesConvocatoriaController@updatePreSelected')
 		->name('aplicantesConvocatorias.update.preselected')
 		->middleware('permission:aplicantesConvocatorias.edit.preselected');
+
+	//EVALUACIONES
+	Route::get('evaluacionesAspirantes/{convocatoria}', 'EvaluacionAspiranteController@index')
+		->name('evaluacionesAspirantes.index')
+		->middleware('permission:evaluacionesAspirantes.index');
+
+	Route::get('evaluacionesAspirantes/{evaluacion}/show', 'EvaluacionAspiranteController@show')
+		->name('evaluacionesAspirantes.show')
+		->middleware('permission:evaluacionesAspirantes.show');
+
+	Route::get('evaluacionesAspirantes/{evaluacion}/edit/{convocatoria}/convocatoria', 'EvaluacionAspiranteController@edit')
+		->name('evaluacionesAspirantes.edit')
+		->middleware('permission:evaluacionesAspirantes.edit');	
+
+	Route::put('evaluacionesAspirantes/{evaluacion}/{convocatoria}', 'EvaluacionAspiranteController@update')
+		->name('evaluacionesAspirantes.update')
+		->middleware('permission:evaluacionesAspirantes.edit');	
+
+	
 });

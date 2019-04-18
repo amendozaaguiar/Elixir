@@ -51,7 +51,7 @@
                             <a class="nav-link" href="{{ route('convocatorias.index') }}">Convocatorias</a>
                         </li>
                         @endcan
-
+                        
                         @can('users.index')
                         <li class="nav-item">
                             <a class="nav-link"  href="{{ route('users.index') }}">Usuarios</a>

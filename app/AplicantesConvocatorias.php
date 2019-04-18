@@ -26,4 +26,8 @@ class AplicantesConvocatorias extends Model
     function usuario(){
         return $this->hasOne(User::class, 'id', 'aspirante_id');
     }
+
+    function detalleConvocatoria(){
+        return $this->hasOne(DetalleConvocatorias::class, 'id', 'detalle_convocatoria_id');
+    }
 }
