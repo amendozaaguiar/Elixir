@@ -209,18 +209,6 @@ class PermissionsTableSeeder extends Seeder
 
 
         /**APLICANTES CONVOCATORIA*/
-        /*Permission::create([
-            'name'          => 'Navegar Aplicantes a Convocatoria',
-            'slug'          => 'aplicantesConvocatorias.index',
-            'description'   => 'Lista y navega todos los aplicantesConvocatoria del sistema',
-        ]);
-
-        Permission::create([
-            'name'          => 'Ver detalle de una aplicacion a una convocatoria',
-            'slug'          => 'aplicantesConvocatorias.show',
-            'description'   => 'Ve en detalle cadaa aplicacion a una convocatoria del sistema',            
-        ]);*/
-        
         Permission::create([
             'name'          => 'Creación de aplicantesConvocatoria',
             'slug'          => 'aplicantesConvocatorias.create',
@@ -228,17 +216,16 @@ class PermissionsTableSeeder extends Seeder
         ]);
         
         Permission::create([
-            'name'          => 'Edición de aplicantesConvocatoria',
-            'slug'          => 'aplicantesConvocatorias.edit.preselected',
-            'description'   => 'Podría editar cualquier dato de una aplicacion a una convocatoria del sistema',
-        ]);
-        
-        Permission::create([
-            'name'          => 'Eliminar aplicantesConvocatoria',
-            'slug'          => 'aplicantesConvocatorias.edit.evaluate',
-            'description'   => 'Podría eliminar cualquiera aplicacion a una convocatoria del sistema',      
+            'name'          => 'Ver hojas de vida de aspirantes',
+            'slug'          => 'aplicantesConvocatorias.show.hv',
+            'description'   => 'Puede visualizar las hojas de vida de los aspirantes',      
         ]);
 
+        Permission::create([
+            'name'          => 'Pre-seleccion de aspirantes',
+            'slug'          => 'aplicantesConvocatorias.edit.preselected',
+            'description'   => 'Puede realizar la preseleccion de los aspirantes (Permite la evalucion de las hojas de vida)',
+        ]);
 
         /**DETALLE DE CONVOCATORIAS*/
         Permission::create([

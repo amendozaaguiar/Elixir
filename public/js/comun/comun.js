@@ -1,3 +1,30 @@
+/**SOLO NUMEROS CON DECIMALES*/
+function numeroDecimal(elemento){
+    var val = $(elemento).val();        
+    if(isNaN(val)){        
+         val = val.replace(/[^0-9\,]/g,'');
+         if(val.split(',').length>2) 
+             val =val.replace(/\,+$/,'');
+    }
+    $(elemento).val(val);
+};
+
+
+/**CALCULO DEL VALOR PARA LA HOJA DE VIDA*/
+function calcularTotal(){
+    total = parseFloat(0.00);
+    total += parseFloat($("#pregrado").val());
+    total += parseFloat($("#especialista").val());
+    total += parseFloat($("#magister_esp_medica").val());
+    total += parseFloat($("#doctorado").val());
+    total += parseFloat($("#seminarios_cursos").val());
+    total += parseFloat($("#experiencia_docencia_universitaria").val());
+    total += parseFloat($("#produccion_intelectual").val());
+    total += parseFloat($("#experiencia_profesional").val());
+    total /= 8;
+    $("#total_hoja_vida").val(total.toFixed(2));
+}
+
 /**CONSULTAR CURSOS DEPENDIENDO DEL PROGRAMA*/
 function getCursos(){
     var programa_id = $('#programa_id').val();

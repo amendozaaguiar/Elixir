@@ -6,9 +6,9 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Detalle de la convocatoria
+                    Detalle {{ $convocatoria->descripcion }}
                     @can('detalleConvocatorias.create')                    
-                    <a href="{{ route('detalleConvocatorias.create', $convocatoria_id) }}" class="btn btn-sm btn-success float-right">
+                    <a href="{{ route('detalleConvocatorias.create', $convocatoria->id) }}" class="btn btn-sm btn-success float-right">
                         Crear
                     </a>
                     @endcan

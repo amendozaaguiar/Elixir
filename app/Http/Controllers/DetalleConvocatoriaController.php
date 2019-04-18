@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 //Modelos
-use App\DetalleConvocatorias;
 use App\Cat;
 use App\Programas;
 use App\Cursos;
+use App\Convocatorias;
+use App\DetalleConvocatorias;
 
 //Request
 use App\Http\Requests\DetalleConvocatoriaRequest;
@@ -22,13 +23,14 @@ class DetalleConvocatoriaController extends Controller
      */
     public function index($id)
     {    
-        $convocatoria_id = $id;   
+        //Convocatoria
+        $convocatoria = Convocatorias::find($id);
 
         $detalleConvocatorias = DetalleConvocatorias::with('convocatoria','cat','programa','curso')
-            ->where('convocatoria_id', '=', $convocatoria_id)
+            ->where('convocatoria_id', '=', $convocatoria->id)
             ->paginate(10);
 
-        return view('detalleConvocatorias.index', compact('convocatoria_id','detalleConvocatorias'));
+        return view('detalleConvocatorias.index', compact('convocatoria','detalleConvocatorias'));
     }
 
     /**
@@ -39,11 +41,19 @@ class DetalleConvocatoriaController extends Controller
     public function create($id)
     {
         $convocatoria_id = $id;
+        
+        //CAT
         $cat = Cat::where('activo', 1)->get()->pluck('nombre', 'id');
+        
+        //Programas
         $programas = Programas::where('activo', 1)->get();
         $programa_id = $programas->first()->id;
         $programas= $programas->pluck('nombre', 'id');
-        $cursos = Cursos::where(['activo' => 1,'programa_id' => $programa_id])->get()->pluck('nombre', 'id');
+
+        //Cursos
+        $cursos = Cursos::where(['activo' => 1,'programa_id' => $programa_id])->get();
+        $cursos = $cursos->pluck('nombre', 'id');
+        
 
         return view('detalleConvocatorias.create',compact('convocatoria_id','cat','programas','cursos'));
     }

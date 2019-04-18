@@ -25,7 +25,7 @@ class CreateCursosTable extends Migration
                 ->comment('Nombre del curso');
 
             $table->text('perfil')
-                ->dafault('')
+                ->nullable()
                 ->comment('Perfil que se requier para el programa');
             
             $table->boolean('activo')

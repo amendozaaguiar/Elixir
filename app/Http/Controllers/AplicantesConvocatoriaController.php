@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 //modelos
 use App\Convocatorias;
 use App\AplicantesConvocatorias;
+use App\EvaluacionesConvocatorias;
 
 //Request
 use App\Http\Requests\AplicantesConvocatoriaRequest;
@@ -54,8 +55,37 @@ class AplicantesConvocatoriaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function updatePreSelected(Request $request)
-    {
-        //dd($request->fecha_hora_presentacion);
+    {     
+        $EvaluacionConvocatoria = EvaluacionesConvocatorias::where('aplicantes_convocatorias_id',$request->id)->first();
+
+        //Si existe un registro, se actualiza, si no se actualiza        
+        if($EvaluacionConvocatoria){
+
+                $EvaluacionConvocatoria->pregrado = number_format($request->pregrado, 2,'.','');
+                $EvaluacionConvocatoria->especialista = number_format($request->especialista,2,'.','');
+                $EvaluacionConvocatoria->magister_esp_medica = number_format($request->magister_esp_medica,2,'.','');
+                $EvaluacionConvocatoria->doctorado = number_format($request->doctorado,2,'.','');
+                $EvaluacionConvocatoria->seminarios_cursos = number_format($request->seminarios_cursos,2,'.','');
+                $EvaluacionConvocatoria->experiencia_docencia_universitaria = number_format($request->experiencia_docencia_universitaria,2,'.','');
+                $EvaluacionConvocatoria->produccion_intelectual = number_format($request->produccion_intelectual,2,'.','');
+                $EvaluacionConvocatoria->experiencia_profesional = number_format($request->experiencia_profesional,2,'.','');
+                $EvaluacionConvocatoria->total_hoja_vida = number_format($request->total_hoja_vida,2,'.',''); 
+            $EvaluacionConvocatoria->save();
+        }else{            
+            $EvaluacionConvocatoria = new EvaluacionesConvocatorias;
+                $EvaluacionConvocatoria->aplicantes_convocatorias_id = $request->id;
+                $EvaluacionConvocatoria->pregrado = number_format($request->pregrado,2,'.','');
+                $EvaluacionConvocatoria->especialista = number_format($request->especialista,2,'.','');
+                $EvaluacionConvocatoria->magister_esp_medica = number_format($request->magister_esp_medica,2,'.','');
+                $EvaluacionConvocatoria->doctorado = number_format($request->doctorado,2,'.','');
+                $EvaluacionConvocatoria->seminarios_cursos = number_format($request->seminarios_cursos,2,'.','');
+                $EvaluacionConvocatoria->experiencia_docencia_universitaria = number_format($request->experiencia_docencia_universitaria,2,'.','');
+                $EvaluacionConvocatoria->produccion_intelectual = number_format($request->produccion_intelectual,2,'.','');
+                $EvaluacionConvocatoria->experiencia_profesional = number_format($request->experiencia_profesional,2,'.','');
+                $EvaluacionConvocatoria->total_hoja_vida = number_format($request->total_hoja_vida,2,'.',''); 
+            $EvaluacionConvocatoria->save();
+        }
+
         $AplicanteConvocatoria = AplicantesConvocatorias::find($request->id);
             $AplicanteConvocatoria->pre_seleccionado = $request->pre_seleccionado;
             $AplicanteConvocatoria->observaciones = $request->observaciones;

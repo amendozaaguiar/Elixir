@@ -52,8 +52,14 @@ class UsersTableSeeder extends Seeder
 
         //Asignacion del permiso al aspirante
         DB::table('permission_role')->insert(
-            ['permission_id' => '33', 'role_id' => '2'],
-            ['permission_id' => '36', 'role_id' => '2']
+            ['permission_id' => '33', 'role_id' => '2']
+        );
+
+        DB::table('permission_role')->insert(
+            ['permission_id' => '35', 'role_id' => '2']
+        );
+        DB::table('permission_role')->insert(
+            ['permission_id' => '32', 'role_id' => '2']
         );
 
 

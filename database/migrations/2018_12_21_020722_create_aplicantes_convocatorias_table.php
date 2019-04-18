@@ -27,7 +27,8 @@ class CreateAplicantesConvocatoriasTable extends Migration
                 ->comment('Url de la hoja de vida');
 
             $table->boolean('pre_seleccionado')
-                ->comment('Preseleccionado 1=si / 0=no /2=No indicado');  
+                ->nullable()
+                ->comment('Preseleccionado 1=si / 0=no /NULL = No indicado');  
 
             $table->text('observaciones')
                 ->nullable()
@@ -49,12 +50,7 @@ class CreateAplicantesConvocatoriasTable extends Migration
                 ->nullable()
                 ->comment('Codigo del usuario que reviso los convocados');
 
-            $table->unsignedInteger('estado_evalucion_id')
-                ->nullable()
-                ->comment('Estado en que se encuentra la convocatoria');
-
             $table->timestamps();
-                //->comment('Creacion/Actualizacion del registro');
 
             $table->softDeletes()
                 ->comment('Eliminacion del registro');
@@ -63,7 +59,6 @@ class CreateAplicantesConvocatoriasTable extends Migration
             $table->foreign('detalle_convocatoria_id')->references('id')->on('detalle_convocatorias');
             $table->foreign('aspirante_id')->references('id')->on('users');
             $table->foreign('usuario_reviso_id')->references('id')->on('users');
-            $table->foreign('estado_evalucion_id')->references('id')->on('estados_evaluacion');
         });
     }
 
