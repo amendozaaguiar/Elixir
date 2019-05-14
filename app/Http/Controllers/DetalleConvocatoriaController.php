@@ -135,17 +135,4 @@ class DetalleConvocatoriaController extends Controller
 
         return redirect()->route('detalleConvocatorias.index',compact('convocatoria_id'))->with('info','Se ha actualizado correctame los datos del detalle de la convocatoria');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $detalleConvocatoria = DetalleConvocatorias::find($id);
-        $detalleConvocatoria->delete();
-        return back()->with('info','Se ha eliminado correctame el detalle de la convocatoria');
-    }
 }

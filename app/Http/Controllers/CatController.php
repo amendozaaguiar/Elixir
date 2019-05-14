@@ -109,18 +109,4 @@ class CatController extends Controller
 
         return redirect()->route('cats.index')->with('info','Se ha actualizado correctamente los datos del CAT');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $cat = Cat::find($id);
-        $cat->delete();
-        
-        return back()->with('info','Se ha eliminado correctamente el CAT');
-    }
 }

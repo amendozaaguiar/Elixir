@@ -42,11 +42,7 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::put('users/{user}', 'UserController@update')
 		->name('users.update')
-		->middleware('permission:users.edit');
-
-	Route::delete('users/{user}', 'UserController@destroy')
-		->name('users.destroy')
-		->middleware('permission:users.destroy');	
+		->middleware('permission:users.edit');	
 
 	//ROLES
 	Route::get('roles', 'RoleController@index')
@@ -71,11 +67,7 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::put('roles/{role}/', 'RoleController@update')
 		->name('roles.update')
-		->middleware('permission:roles.edit');	
-
-	Route::delete('roles/{role}', 'RoleController@destroy')
-		->name('roles.destroy')
-		->middleware('permission:roles.destroy');
+		->middleware('permission:roles.edit');
 
 	//CONVOCATORIAS
 	Route::get('convocatorias', 'ConvocatoriaController@index')
@@ -100,11 +92,7 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::put('convocatorias/{convocatoria}/', 'ConvocatoriaController@update')
 		->name('convocatorias.update')
-		->middleware('permission:convocatorias.edit');	
-
-	Route::delete('convocatorias/{convocatoria}', 'ConvocatoriaController@destroy')
-		->name('convocatorias.destroy')
-		->middleware('permission:convocatorias.destroy');
+		->middleware('permission:convocatorias.edit');
 
 	//DETALLE DE CONVOCATORIAS
 	Route::get('convocatorias/{convocatoria}/detalle', 'DetalleConvocatoriaController@index')
@@ -131,10 +119,6 @@ Route::middleware(['auth'])->group(function () {
 		->name('detalleConvocatorias.update')
 		->middleware('permission:detalleConvocatorias.edit');	
 
-	Route::delete('convocatorias/detalle/{detalle_convocatoria}', 'DetalleConvocatoriaController@destroy')
-		->name('detalleConvocatorias.destroy')
-		->middleware('permission:detalleConvocatorias.destroy');
-
 	//CURSOS
 	Route::get('cursos', 'CursoController@index')
 		->name('cursos.index')
@@ -159,10 +143,6 @@ Route::middleware(['auth'])->group(function () {
 	Route::put('cursos/{curso}/', 'CursoController@update')
 		->name('cursos.update')
 		->middleware('permission:cursos.edit');	
-
-	Route::delete('cursos/{curso}', 'CursoController@destroy')
-		->name('cursos.destroy')
-		->middleware('permission:cursos.destroy');
 
 	/*RUTA ESPECIAL PARA CONSULTAR LOS CURSOS DEPENDIENDO DEL PROGRAMA*/
 	Route::get('cursos/todos/programa/{id}', 'CursoController@getCursos')
@@ -193,11 +173,6 @@ Route::middleware(['auth'])->group(function () {
 		->name('cats.update')
 		->middleware('permission:cat.edit');	
 
-	Route::delete('cats/{cat}', 'CatController@destroy')
-		->name('cats.destroy')
-		->middleware('permission:cat.destroy');
-
-
 	/**PROGRAMAS*/
 	Route::get('programas', 'ProgramaController@index')
 		->name('programas.index')
@@ -222,10 +197,6 @@ Route::middleware(['auth'])->group(function () {
 	Route::put('programas/{programa}/', 'ProgramaController@update')
 		->name('programas.update')
 		->middleware('permission:programas.edit');	
-
-	Route::delete('programas/{programa}', 'ProgramaController@destroy')
-		->name('programas.destroy')
-		->middleware('permission:programas.destroy');
 
 	/**CURSOS*/
 	Route::get('cursos', 'CursoController@index')
@@ -252,9 +223,6 @@ Route::middleware(['auth'])->group(function () {
 		->name('cursos.update')
 		->middleware('permission:cursos.edit');	
 
-	Route::delete('cursos/{curso}', 'CursoController@destroy')
-		->name('cursos.destroy')
-		->middleware('permission:cursos.destroy');
 
 	//RUTA ESPECIAL PARA CONSULTAR LOS MINICIPIOS DEPENDIENDO DEL DEPARTAMENTO
 	Route::get('municipios/todos/departamento/{id}', 'MunicipioController@getMunicipios')
@@ -288,5 +256,17 @@ Route::middleware(['auth'])->group(function () {
 		->name('evaluacionesAspirantes.update')
 		->middleware('permission:evaluacionesAspirantes.edit');	
 
-	
+	/**REPORTES*/	
+	Route::get('convocatorias/report/one/{convocatoria}', 'ConvocatoriaController@reportOne')
+		->name('convocatorias.report.one')
+		->middleware('permission:convocatorias.report');
+
+	Route::get('convocatorias/report/two/{convocatoria}', 'ConvocatoriaController@reportTwo')
+		->name('convocatorias.report.two')
+		->middleware('permission:convocatorias.report');
+
+	Route::get('convocatorias/report/three/{convocatoria}', 'ConvocatoriaController@reportThree')
+		->name('convocatorias.report.three')
+		->middleware('permission:convocatorias.report');
+
 });

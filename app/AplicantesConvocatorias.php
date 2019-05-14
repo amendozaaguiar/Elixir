@@ -30,4 +30,8 @@ class AplicantesConvocatorias extends Model
     function detalleConvocatoria(){
         return $this->hasOne(DetalleConvocatorias::class, 'id', 'detalle_convocatoria_id');
     }
+
+    function evaluacion(){
+        return $this->hasOne(EvaluacionesAspirantes::class, 'aplicantes_convocatorias_id', 'id');
+    }
 }

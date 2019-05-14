@@ -17,7 +17,7 @@
                 <div class="card-body">
                     @include('alerts.info')
                     @include('alerts.errors')
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover table-sm">
                         <thead class="thead-dark">
                             <tr>
                                 <th>id</th>
@@ -26,8 +26,8 @@
                                 <th>Email</th>
                                 <th>Departamento</th>
                                 <th>Municipio</th>
-                                <th>Activo</th>
-                                <th colspan="3">&nbsp;</th>
+                                <th>Estado</th>
+                                <th colspan="2">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,29 +45,18 @@
                                 <td width="10px">
                                     <a href="{{ route('cats.show', $cat->id) }}" 
                                     class="btn btn-sm btn btn-primary">
-                                        ver
+                                        Ver
                                     </a>
                                 </td>
-                                @endcan
-                                
+                                @endcan                                
                                 @can('cats.edit')
                                     <td width="10px">
                                         <a href="{{ route('cats.edit', $cat->id) }}" 
                                         class="btn btn-sm btn btn-success">
-                                            editar
+                                            Editar
                                         </a>
                                     </td>
-                                @endcan
-                                @can('cats.destroy')
-                                    <td width="10px">
-                                        {!! Form::open(['route' => ['cats.destroy', $cat->id], 
-                                        'method' => 'DELETE']) !!}
-                                            <button class="btn btn-sm btn-danger">
-                                                Eliminar
-                                            </button>
-                                        {!! Form::close() !!}
-                                    </td>
-                                @endcan                                    
+                                @endcan                                  
                             </tr>
                             @endforeach
                         </tbody>

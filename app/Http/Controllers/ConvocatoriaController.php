@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 //Modelos
 use App\Convocatorias;
+use App\DetalleConvocatorias;
+use App\AplicantesConvocatorias;
+use App\EvaluacionesAspirantes;
 
 //Request
 use App\Http\Requests\ConvocatoriaRequest;
@@ -62,8 +65,7 @@ class ConvocatoriaController extends Controller
         $Convocatoria = Convocatorias::with('detalleConvocatoria.aplicantes.usuario.detail.tipoDocumento','detalleConvocatoria.curso.programa')
             ->where('id',$id)
             ->get();
-        //dd($Convocatoria);
-        
+
         return view('convocatorias.show', compact('Convocatoria'));
     }
 
@@ -99,16 +101,59 @@ class ConvocatoriaController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function reportOne($id)
     {
-        $Convocatoria = Convocatorias::find($id);
-        $Convocatoria->delete();
-        
-        return back()->with('info', 'Se ha eliminado correctamente la convocatoria');
+        $convocatoria = Convocatorias::find($id);
+        $detalleConvocatoria = DetalleConvocatorias::with('convocatoria','cat','programa','curso')
+            ->where('convocatoria_id',$id)
+            ->get();
+        return view('convocatorias.report.one', compact('convocatoria','detalleConvocatoria'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function reportTwo($id)
+    {
+     $AplicacionesAspirante = AplicantesConvocatorias::whereHas('detalleConvocatoria', function ($query) use($id){
+            $query->where('convocatoria_id', $id);
+        })
+        ->with('detalleConvocatoria.curso.programa',
+        'detalleConvocatoria.curso.programa',
+        'detalleConvocatoria.cat',
+        'usuario.detail',
+        'evaluacion')
+        ->get();
+    //dd($AplicacionesAspirante);
+    return view('convocatorias.report.two', compact('AplicacionesAspirante'));    
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function reportThree($id)
+    {
+       $AplicacionesAspirante = AplicantesConvocatorias::whereHas('detalleConvocatoria', function ($query) use($id){
+            $query->where('convocatoria_id', $id);
+        })
+        ->with('detalleConvocatoria.curso.programa',
+        'detalleConvocatoria.curso.programa',
+        'detalleConvocatoria.cat',
+        'usuario.detail',
+        'evaluacion')
+        ->get();
+        //dd($AplicacionesAspirante);
+        return view('convocatorias.report.three', compact('AplicacionesAspirante'));    
     }
 }

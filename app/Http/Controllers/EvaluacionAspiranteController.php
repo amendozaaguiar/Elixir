@@ -16,8 +16,6 @@ class EvaluacionAspiranteController extends Controller
      */
     public function index($id)
     {
-        //$evaluacionesAspirantes = EvaluacionesAspirantes::with(['aplicante.usuario.detail.tipoDocumento'])->paginate(10);
-
         $evaluacionesAspirantes = EvaluacionesAspirantes::with([
             'aplicante.usuario.detail.tipoDocumento',
             'aplicante.detalleConvocatoria.curso.programa'])
@@ -87,10 +85,6 @@ class EvaluacionAspiranteController extends Controller
         $evaluacionAspirante = EvaluacionesAspirantes::find($id);
             $evaluacionAspirante->ensayo = $request->ensayo;
             $evaluacionAspirante->prueba_conocimiento = $request->prueba_conocimiento;
-            $evaluacionAspirante->jurado_1 = $request->jurado_1;
-            $evaluacionAspirante->jurado_2 = $request->jurado_2;
-            $evaluacionAspirante->jurado_3 = $request->jurado_3;
-            $evaluacionAspirante->total_entrevista = $request->total_entrevista;
         $evaluacionAspirante->save();
 
         return redirect()->route('evaluacionesAspirantes.index',$id_convocatoria)->with('info','Se ha actualizado correctamente los datos de la evaluación');

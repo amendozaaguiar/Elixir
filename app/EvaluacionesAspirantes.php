@@ -11,7 +11,6 @@ class EvaluacionesAspirantes extends Model
 
     //Campos accesibles
     protected $fillable = [
-        'id',
         'aplicantes_convocatorias_id',
         'pregrado',
         'especialista',

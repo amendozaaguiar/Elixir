@@ -76,17 +76,6 @@
                                         </a>
                                     </td>
                                     @endcan
-
-                                    @can('convocatorias.destroy')
-                                    <td width="10px">
-                                        {!! Form::open(['route' => ['convocatorias.destroy', $convocatoria->id], 
-                                        'method' => 'DELETE']) !!}
-                                            <button class="btn btn-sm btn-danger">
-                                                Eliminar
-                                            </button>
-                                        {!! Form::close() !!}
-                                    </td>
-                                    @endcan
                                 @else
                                     <td width="10px"></td>
                                     @can('detalleConvocatorias.index')
@@ -99,6 +88,33 @@
                                     @endcan
                                     <td width="10px"></td>
                                 @endif
+
+                                @can('convocatorias.report')
+                                <td width="10px">
+                                    <a href="#" class="nav-item dropdown">
+                                        <a id="navbarDropdown" class="dropdown-toggle btn-sm btn  btn btn-warning" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                            Reportes 
+                                            <span class="caret"></span>
+                                        </a>
+                                    
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="{{ route('convocatorias.report.one', $convocatoria->id) }}"
+                                                target="_blank">
+                                                Perfiles Convocatoria
+                                            </a>
+                                            <a class="dropdown-item" href="{{ route('convocatorias.report.two', $convocatoria->id) }}"
+                                                target="_blank">
+                                                Listado de pre-seleccionados
+                                            </a>
+                                            <a class="dropdown-item" href="{{ route('convocatorias.report.three', $convocatoria->id) }}"
+                                                target="_blank">
+                                                Resultados finales
+                                            </a>
+                                        </div>
+                                        
+                                    </a>
+                                </td>
+                                @endcan
                             </tr>
                             @endforeach
                         </tbody>

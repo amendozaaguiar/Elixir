@@ -33,10 +33,11 @@
 			{{ Form::select('municipio_id', $municipios, null,['class' => 'form-control', 'id' => 'municipio_id']) }}
 		</div>
 	</div>
-
+</div>
+<div class="form-group">
 	<div class="row">
 		<div class="col-md-1">
-			{{ Form::label('activo', 'Activo')}}
+			{{ Form::label('activo', 'Estado')}}
 			{{ Form::select('activo', [1=>'Si', 0=>'No'], null,['class' => 'form-control', 'id' => 'activo']) }}
 		</div>
 	</div>

@@ -64,22 +64,6 @@ class CreateEvaluacionesAspirantesTable extends Migration
             $table->unsignedDecimal('prueba_conocimiento', 4, 2)
                 ->nullable()
                 ->comment('Calificacion prueba de conocimiento');
-            
-            $table->unsignedDecimal('jurado_1', 4, 2)
-                ->nullable()
-                ->comment('Calificacion jurado 1');
-            
-            $table->unsignedDecimal('jurado_2', 4, 2)
-                ->nullable()
-                ->comment('Calificacion jurado 2');
-
-            $table->unsignedDecimal('jurado_3', 4, 2)
-                ->nullable()
-                ->comment('Calificacion jurado 3');
-
-            $table->unsignedDecimal('total_entrevista', 4, 2)
-                ->nullable()
-                ->comment('Total puntaje entrevista');
 
             $table->timestamps();
                 //->comment('Creacion/Actualizacion del registro');

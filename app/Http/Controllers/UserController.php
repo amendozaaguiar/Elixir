@@ -140,20 +140,6 @@ class UserController extends Controller
             ->with('info', 'Usuario guardado con éxito');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $user = User::with('detail')->find($id);
-        $user->detail()->delete();
-        $user->delete();
-        return back()->with('info', 'Usuario eliminado correctamente');
-    }
-
     public function createExternal()
     {
         $documentos = TiposDocumento::where('activo', 1)->get()->pluck('descripcion', 'id');

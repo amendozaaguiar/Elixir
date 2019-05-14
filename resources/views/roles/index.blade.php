@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     Roles
@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="card-body">
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover table-sm">
                         <thead class="thead-dark">
                             <tr>
                                 <th width="10px">Id</th>
@@ -43,16 +43,6 @@
                                     class="btn btn-sm btn-success">
                                         Editar
                                     </a>
-                                </td>
-                                @endcan
-                                @can('roles.destroy')
-                                <td width="10px">
-                                    {!! Form::open(['route' => ['roles.destroy', $role->id], 
-                                    'method' => 'DELETE']) !!}
-                                        <button class="btn btn-sm btn-danger">
-                                            Eliminar
-                                        </button>
-                                    {!! Form::close() !!}
                                 </td>
                                 @endcan
                             </tr>

@@ -17,14 +17,14 @@
                 <div class="card-body">
                     @include('alerts.info')
                     @include('alerts.errors') 
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover table-sm">
                         <thead class="thead-dark">
                             <tr>
                                 <th>Id</th>
                                 <th>Programa</th>
                                 <th>Nombre</th>
                                 <th>Perfil</th>
-                                <th>Activo</th>
+                                <th>Estado</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>
@@ -41,7 +41,7 @@
                                 <td width="10px">
                                     <a href="{{ route('cursos.show', $curso->id) }}" 
                                     class="btn btn-sm btn btn-primary">
-                                        ver
+                                        Ver
                                     </a>
                                 </td>
                                 @endcan
@@ -50,20 +50,10 @@
                                     <td width="10px">
                                         <a href="{{ route('cursos.edit', $curso->id) }}" 
                                         class="btn btn-sm btn btn-success">
-                                            editar
+                                            Editar
                                         </a>
                                     </td>
-                                @endcan
-                                @can('cursos.destroy')
-                                    <td width="10px">
-                                        {!! Form::open(['route' => ['cursos.destroy', $curso->id], 
-                                        'method' => 'DELETE']) !!}
-                                            <button class="btn btn-sm btn-danger">
-                                                Eliminar
-                                            </button>
-                                        {!! Form::close() !!}
-                                    </td>
-                                @endcan                                    
+                                @endcan                                
                             </tr>
                             @endforeach
                         </tbody>

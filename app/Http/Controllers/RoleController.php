@@ -89,17 +89,4 @@ class RoleController extends Controller
         return redirect()->route('roles.edit', $role->id)
             ->with('info', 'Rol guardado con éxito');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $role = Role::find($id);
-        $role->delete();
-        return back()->with('info', 'Eliminado correctamente');
-    }
 }

@@ -31,11 +31,6 @@
                     <p><strong>Total hoja de vida:</strong>   {{ $evaluacionAspirante->total_hoja_vida }}</p>
                     <p><strong>Ensayo:</strong>   {{ $evaluacionAspirante->ensayo }}</p>
                     <p><strong>Prueba de conocimiento:</strong>   {{ $evaluacionAspirante->prueba_conocimiento }}</p>
-                    <p><strong>Jurado N° 1:</strong>   {{ $evaluacionAspirante->jurado_1 }}</p>
-                    <p><strong>Jurado N° 2:</strong>   {{ $evaluacionAspirante->jurado_2 }}</p>
-                    <p><strong>Jurado N° 3:</strong>   {{ $evaluacionAspirante->jurado_3 }}</p>
-                    <p><strong>Total entrevista:</strong>   {{ $evaluacionAspirante->total_entrevista }}</p>
-
                 </div>
             </div>
         </div>

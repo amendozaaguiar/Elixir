@@ -13,7 +13,7 @@
                 <div class="card-body">                                        
                     <p><strong>Codigo:</strong>   {{ $programa->id }}</p>
                     <p><strong>Nombre:</strong>   {{ $programa->nombre }}</p>
-                    <p><strong>Activo:</strong>   {{  $programa->activo ? 'Activo' : 'Inactivo' }}</p>
+                    <p><strong>Estado:</strong>   {{ $programa->activo ? 'Activo' : 'Inactivo' }}</p>
 
                 </div>
             </div>

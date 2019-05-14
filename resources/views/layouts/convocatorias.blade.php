@@ -1,7 +1,7 @@
-<table class="table table-striped table-hover">
+<table class="table table-striped table-hover table-sm">
     <thead class="thead-dark">
         <tr>
-            <th>id</th>
+            <th>Id</th>
             <th>Año</th>
             <th>Descripción</th>
             <th>Fecha de Inicio</th>

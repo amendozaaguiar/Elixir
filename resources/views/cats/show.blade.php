@@ -17,7 +17,7 @@
                     <p><strong>Email:</strong>   {{ $cat->email }}</p>
                     <p><strong>Departamento:</strong>   {{ $cat->departamento->nombre }}</p>
                     <p><strong>Municipio:</strong>   {{ $cat->municipio->nombre }}</p>
-                    <p><strong>Activo:</strong>   {{  $cat->activo ? 'Activo' : 'Inactivo' }}</p>
+                    <p><strong>Estado:</strong>   {{  $cat->activo ? 'Activo' : 'Inactivo' }}</p>
 
                 </div>
             </div>

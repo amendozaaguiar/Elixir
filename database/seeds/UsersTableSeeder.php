@@ -51,18 +51,20 @@ class UsersTableSeeder extends Seeder
         ]);
 
         //Asignacion del permiso al aspirante
+
+        //Ver detalle de convocatorias
         DB::table('permission_role')->insert(
-            ['permission_id' => '33', 'role_id' => '2']
+            ['permission_id' => '26', 'role_id' => '2']
+        );
+        //Ver en detalle el detalle de una convocatoria
+         DB::table('permission_role')->insert(
+            ['permission_id' => '27', 'role_id' => '2']
+        );
+        //Aplicar a convocatoria
+        DB::table('permission_role')->insert(
+            ['permission_id' => '30', 'role_id' => '2']
         );
 
-        DB::table('permission_role')->insert(
-            ['permission_id' => '35', 'role_id' => '2']
-        );
-        DB::table('permission_role')->insert(
-            ['permission_id' => '32', 'role_id' => '2']
-        );
-
-
-       
+               
     }
 }

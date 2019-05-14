@@ -17,7 +17,7 @@
                 <div class="card-body">
                     @include('alerts.info')
                     @include('alerts.errors')
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover table-sm">
                         <thead class="thead-dark">
                             <tr>
                                 <th>id</th>
@@ -27,7 +27,7 @@
                                 <th>Curso</th>
                                 <th>Perfil</th>
                                 <th>Requisitos</th>
-                                <th colspan="5">&nbsp;</th>
+                                <th colspan="4">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -65,17 +65,6 @@
                                         <a class="btn btn-sm btn btn-info" href="#" data-toggle="modal" data-target="#AplicarConvocatoriaModal" data-convocatoria="{{ $detalleConvocatoria->id }}">
                                             Aplicar
                                         </a>
-                                    </td>
-                                    @endcan
-
-                                    @can('detalleConvocatorias.destroy')
-                                    <td width="10px">
-                                        {!! Form::open(['route' => ['detalleConvocatorias.destroy', $detalleConvocatoria->id], 
-                                        'method' => 'DELETE']) !!}
-                                            <button class="btn btn-sm btn-danger">
-                                                Eliminar
-                                            </button>
-                                        {!! Form::close() !!}
                                     </td>
                                     @endcan
                                 @else

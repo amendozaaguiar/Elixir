@@ -16,7 +16,6 @@ class Cursos extends Model
         'id',
         'programa_id',
         'nombre',
-        'perfil',
         'activo'
     ];
 

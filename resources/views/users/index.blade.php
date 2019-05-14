@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     Usuarios
@@ -17,12 +17,13 @@
 
                 <div class="card-body">
                     @include('alerts.info')
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover table-sm">
                         <thead class="thead-dark">
                             <tr>
-                                <th width="10px">ID</th>
-                                <th>Alias</th>
-                                <th colspan="3">&nbsp;</th>
+                                <th width="10px">Id</th>
+                                <th>Email</th>
+                                <th>Nombre</th>
+                                <th colspan="2">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,11 +31,12 @@
                             <tr>
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->email }}</td>
+                                <td>{{ $user->detail->primer_nombre }} {{$user->detail->segundo_nombre}} {{$user->detail->primer_apellido}} {{$user->detail->segundo_apellido}}</td>
                                 @can('users.show')
                                 <td width="10px">
                                     <a href="{{ route('users.show', $user->id) }}" 
                                     class="btn btn-sm btn btn-primary">
-                                        ver
+                                        Ver
                                     </a>
                                 </td>
                                 @endcan
@@ -42,18 +44,8 @@
                                 <td width="10px">
                                     <a href="{{ route('users.edit', $user->id) }}" 
                                     class="btn btn-sm btn btn-success">
-                                        editar
+                                        Editar
                                     </a>
-                                </td>
-                                @endcan
-                                @can('users.destroy')
-                                <td width="10px">
-                                    {!! Form::open(['route' => ['users.destroy', $user->id], 
-                                    'method' => 'DELETE']) !!}
-                                        <button class="btn btn-sm btn-danger">
-                                            Eliminar
-                                        </button>
-                                    {!! Form::close() !!}
                                 </td>
                                 @endcan
                             </tr>

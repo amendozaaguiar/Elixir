@@ -87,18 +87,4 @@ class ProgramaController extends Controller
 
         return redirect()->route('programas.index')->with('info', 'Se ha actualizado correctamente los datos del programa');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $programa = Programas::find($id);
-        $programa->delete();
-
-        return back()->with('info','Se ha eliminado correctamente el programa');
-    }
 }

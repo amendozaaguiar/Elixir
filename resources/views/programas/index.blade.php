@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     Programas
@@ -17,12 +17,12 @@
                 <div class="card-body">
                     @include('alerts.info')
                     @include('alerts.errors')
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover table-sm">
                         <thead class="thead-dark">
                             <tr>
                                 <th>Id</th>
                                 <th>Nombre</th>
-                                <th>Activo</th>
+                                <th>Estado</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>
@@ -37,7 +37,7 @@
                                 <td width="10px">
                                     <a href="{{ route('programas.show', $Programa->id) }}" 
                                     class="btn btn-sm btn btn-primary">
-                                        ver
+                                        Ver
                                     </a>
                                 </td>
                                 @endcan
@@ -46,20 +46,10 @@
                                     <td width="10px">
                                         <a href="{{ route('programas.edit', $Programa->id) }}" 
                                         class="btn btn-sm btn btn-success">
-                                            editar
+                                            Editar
                                         </a>
                                     </td>
-                                @endcan
-                                @can('programas.destroy')
-                                    <td width="10px">
-                                        {!! Form::open(['route' => ['programas.destroy', $Programa->id], 
-                                        'method' => 'DELETE']) !!}
-                                            <button class="btn btn-sm btn-danger">
-                                                Eliminar
-                                            </button>
-                                        {!! Form::close() !!}
-                                    </td>
-                                @endcan                                    
+                                @endcan                              
                             </tr>
                             @endforeach
                         </tbody>

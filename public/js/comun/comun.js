@@ -25,22 +25,6 @@ function calcularTotalHV(){
     $("#total_hoja_vida").val(total.toFixed(2));
 }
 
-
-/**CALCULO DEL VALOR PARA LA ENTREVISTA*/
-function calcularTotaEntrevista(){
-    total = parseFloat(0.00);
-    total += parseFloat($("#jurado_1").val());
-    total += parseFloat($("#jurado_2").val());
-    total += parseFloat($("#jurado_3").val());
-    
-    if(parseFloat($("#jurado_3").val()) > 0){
-        total /= 3;
-    }else if(parseFloat($("#jurado_2").val()) > 0){
-        total /= 2;
-    }
-    $("#total_entrevista").val(total.toFixed(2));
-}
-
 /**CONSULTAR CURSOS DEPENDIENDO DEL PROGRAMA*/
 function getCursos(){
     var programa_id = $('#programa_id').val();
