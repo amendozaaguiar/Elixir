@@ -15,23 +15,19 @@ class CreateTiposDocumentoTable extends Migration
     {
         Schema::create('tipos_documento', function (Blueprint $table) {
             $table->increments('id')
-                ->comment('Codigo del tipo de documento');
+                ->comment('Código del tipo de documento');
 
             $table->string('abreviacion',3)
-                ->comment('Abreviacion del tipo de documento');
+                ->comment('Abreviación del tipo de documento');
 
             $table->string('descripcion',50)
-                ->comment('Descripcion');
+                ->comment('Descripción');
 
             $table->boolean('activo')
                 ->default(1)
                 ->comment('Activo');
 
             $table->timestamps();
-                //->comment('Creacion/Actualizacion del registro');
-
-            $table->softDeletes()
-                ->comment('Eliminacion del registro');
         });
     }
 

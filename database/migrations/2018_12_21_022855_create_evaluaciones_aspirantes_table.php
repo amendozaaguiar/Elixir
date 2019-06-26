@@ -16,10 +16,10 @@ class CreateEvaluacionesAspirantesTable extends Migration
         //computar entre total entrevista y hv para dar el total Final
         Schema::create('evaluaciones_aspirantes', function (Blueprint $table) {
             $table->increments('id')
-                ->comment('Codigo de la evaluacion de la convocatoria');
+                ->comment('Código de la evaluacion de la convocatoria');
             
             $table->unsignedInteger('aplicantes_convocatorias_id')
-                ->comment('Codigo de la aspiracion a la convocatoria');
+                ->comment('Código de la aspiracion a la convocatoria');
             
             $table->unsignedDecimal('pregrado', 4, 2)
                 ->nullable()
@@ -66,10 +66,6 @@ class CreateEvaluacionesAspirantesTable extends Migration
                 ->comment('Calificacion prueba de conocimiento');
 
             $table->timestamps();
-                //->comment('Creacion/Actualizacion del registro');
-
-            $table->softDeletes()
-                ->comment('Eliminacion del registro');
 
             //Foraneas
             $table->foreign('aplicantes_convocatorias_id')->references('id')->on('aplicantes_convocatorias');
@@ -83,6 +79,6 @@ class CreateEvaluacionesAspirantesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('evaluaciones_convocatorias');
+        Schema::dropIfExists('evaluaciones_aspirantes');
     }
 }

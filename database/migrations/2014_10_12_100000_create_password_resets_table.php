@@ -16,14 +16,13 @@ class CreatePasswordResetsTable extends Migration
         Schema::create('password_resets', function (Blueprint $table) {
             $table->string('email')
                 ->index()
-                ->comment('email de restablecimiento de contraseña');
+                ->comment('Correo de restablecimiento de contraseña');
 
             $table->string('token')
                 ->comment('Token de restablecimiento de contraseña');
 
             $table->timestamp('created_at')
-                ->nullable()
-                ->comment('Creacion del registro');
+                ->nullable();
         });
     }
 

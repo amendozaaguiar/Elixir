@@ -3,13 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DetalleConvocatorias extends Model
 {
-	//Eliminacion logica
-    use SoftDeletes;
-
     //Tabla
     protected $table = 'detalle_convocatorias';
 
@@ -25,27 +21,32 @@ class DetalleConvocatorias extends Model
     ];
 
     //Aspirantes
-    public function aplicantes(){
+    public function aplicantes()
+    {
         return $this->hasMany(AplicantesConvocatorias::class, 'detalle_convocatoria_id', 'id');
     }    
 
     //Convocatoria
-    function convocatoria(){
+    function convocatoria()
+    {
         return $this->hasOne(Convocatorias::class, 'id', 'convocatoria_id');
     }
 
-    //CAT´s
-    function cat(){
+    //CATs
+    function cat()
+    {
         return $this->hasOne(CAT::class, 'id', 'cat_id');
     }
 
     //Programas
-    function programa(){
+    function programa()
+    {
         return $this->hasOne(Programas::class, 'id', 'programa_id');
     }
 
     //Cursos
-    function curso(){
+    function curso()
+    {
         return $this->hasOne(Cursos::class, 'id', 'curso_id');
     }
 }

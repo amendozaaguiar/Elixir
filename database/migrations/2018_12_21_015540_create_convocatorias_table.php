@@ -15,7 +15,7 @@ class CreateConvocatoriasTable extends Migration
     {
         Schema::create('convocatorias', function (Blueprint $table) {            
             $table->increments('id')
-                ->comment('Codigo de la convocatoria');
+                ->comment('Código de la convocatoria');
 
             $table->text('descripcion')
                 ->comment('Descripcion de la convocatoria');
@@ -31,10 +31,6 @@ class CreateConvocatoriasTable extends Migration
                 ->comment('Activa');
 
             $table->timestamps();
-                //->comment('Creacion/Actualizacion del registro');
-
-            $table->softDeletes()
-                ->comment('Eliminacion del registro');
         });
     }
 

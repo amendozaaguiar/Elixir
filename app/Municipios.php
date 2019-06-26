@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Municipios extends Model
 {   
-    protected $table = 'Municipios';
+	//Tabla
+    protected $table = 'municipios';
 
+    //Campos accesibles
     protected $fillable = [
         'id_departamento',
         'codigo_divipola',

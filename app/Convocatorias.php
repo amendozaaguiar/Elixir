@@ -3,15 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Convocatorias extends Model
-{
-    //Eliminacion logica
-    use SoftDeletes;
-    
+{    
+    //Tabla
     protected $table = 'convocatorias';
 
+    //Campos accesibles
     protected $fillable = [
         'id',
         'descripcion',
@@ -20,16 +18,12 @@ class Convocatorias extends Model
         'activa'
     ];
 
-     /**
-     * Obtener el detalle de la convocatoria.
-     */
+    //Detalle de la convocatoria
     public function detalleConvocatoria(){
         return $this->hasMany(DetalleConvocatorias::class, 'convocatoria_id', 'id');
     }
 
-    /**
-     * Obtener los aspirantes.
-     */
+    //Aspirantes
     public function aspirantes()
     {
         return $this->hasManyThrough(

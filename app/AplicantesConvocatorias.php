@@ -3,15 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AplicantesConvocatorias extends Model
-{
-     //Eliminacion logica
-    use SoftDeletes;
-    
+{    
+    //tabla
     protected $table = 'aplicantes_convocatorias';
 
+    //Campos accesibles
     protected $fillable = [
         'detalle_convocatoria_id',
         'aspirante_id',

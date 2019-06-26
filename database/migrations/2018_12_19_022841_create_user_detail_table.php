@@ -15,38 +15,34 @@ class CreateUserDetailTable extends Migration
     {
         Schema::create('users_detail', function (Blueprint $table) {
             $table->increments('id')
-                ->comment('Codigo del detalle del usuario');
+                ->comment('Código del detalle del usuario');
 
             $table->unsignedInteger('user_id')                
                 ->default('1')
-                ->comment('Codigo de Usuario');
+                ->comment('Código de Usuario');
 
             $table->unsignedInteger('tipo_documento_id')                
                 ->default('1')
-                ->comment('Codigo del Tipo de documento');
+                ->comment('Código del tipo de documento');
 
             $table->string('numero_documento',25)
                 ->comment('Numero de documento');
 
             $table->string('primer_nombre',50)
-                ->comment('Primer Nombre');
+                ->comment('Primer Nnmbre');
 
             $table->string('segundo_nombre',50)                
                 ->nullable()
-                ->comment('Segundo Nombre');
+                ->comment('Segundo nombre');
 
             $table->string('primer_apellido',50)
-                ->comment('Primer Apellido');
+                ->comment('Primer apellido');
 
             $table->string('segundo_apellido',50)                
                 ->nullable()
-                ->comment('Segundo Apellido');     
+                ->comment('Segundo apellido');     
 
             $table->timestamps();
-                //->comment('Creacion/Actualizacion del registro');
-
-            $table->softDeletes()
-                ->comment('Eliminacion del registro');
 
             //Llaves foraneas
             $table->foreign('user_id')->references('id')->on('users');

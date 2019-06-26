@@ -29,7 +29,7 @@ class EvaluacionesAspirantes extends Model
         'total_entrevista'
     ];
 
-    //Aplicante
+    //Datos del Aplicante
     function aplicante(){
         return $this->hasOne(AplicantesConvocatorias::class, 'id', 'aplicantes_convocatorias_id');
     }

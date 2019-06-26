@@ -15,30 +15,26 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id')
-                ->comment('Codigo de usuario');
+                ->comment('Código de usuario');
 
             $table->string('name')
                 ->comment('Alias de usuario');
 
             $table->string('email')
                 ->unique()
-                ->comment('Correo electronico');
+                ->comment('Correo electrónico');
 
             $table->timestamp('email_verified_at')
                 ->nullable()
-                ->comment('Verificacion del email');
+                ->comment('Verificación del correo electrónico');
 
             $table->string('password')
                 ->comment('Contraseña');
 
             $table->rememberToken()
-                ->comment('Token de autentificacion');
+                ->comment('Token de autentificación');
 
             $table->timestamps();
-                //->comment('Creacion/Actualizacion del registro');
-
-            $table->softDeletes()
-                ->comment('Eliminacion del registro');
         });
     }
 

@@ -89,15 +89,4 @@ class EvaluacionAspiranteController extends Controller
 
         return redirect()->route('evaluacionesAspirantes.index',$id_convocatoria)->with('info','Se ha actualizado correctamente los datos de la evaluación');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

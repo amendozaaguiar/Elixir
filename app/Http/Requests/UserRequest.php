@@ -43,7 +43,7 @@ class UserRequest extends FormRequest
     {
         return [
             'detail.tipo_documento_id' => 'required',
-            'detail.numero_documento' => 'required',
+            'detail.numero_documento' => 'required|min:2',
             'detail.primer_nombre'     => 'required|min:2|max:25',
             'detail.primer_apellido'   => 'required|min:2|max:25',
             'password'          => 'required|min:8',

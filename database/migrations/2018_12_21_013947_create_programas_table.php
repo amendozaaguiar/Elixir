@@ -15,7 +15,7 @@ class CreateProgramasTable extends Migration
     {
         Schema::create('programas', function (Blueprint $table) {
             $table->increments('id')
-                ->comment('Codigo del programa');
+                ->comment('Código del programa');
 
             $table->string('nombre',50)
                 ->comment('Nombre del programa');
@@ -25,10 +25,6 @@ class CreateProgramasTable extends Migration
                 ->comment('Activo');
 
             $table->timestamps();
-                //->comment('Creacion/Actualizacion del registro');
-
-            $table->softDeletes()
-                ->comment('Eliminacion del registro');
         });
     }
 

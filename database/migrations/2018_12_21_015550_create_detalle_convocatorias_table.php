@@ -15,19 +15,19 @@ class CreateDetalleConvocatoriasTable extends Migration
     {
         Schema::create('detalle_convocatorias', function (Blueprint $table) {
             $table->increments('id')
-                ->comment('Codigo del detalle de la convocatoria');
+                ->comment('Código del detalle de la convocatoria');
 
             $table->unsignedInteger('convocatoria_id')
-                ->comment('Codigo de la convocatoria');
+                ->comment('Código de la convocatoria');
 
             $table->unsignedInteger('cat_id')
-                ->comment('Codigo del CAT');
+                ->comment('Código del CAT');
 
             $table->unsignedInteger('programa_id')
-                ->comment('Codigo del programa');
+                ->comment('Código del programa');
 
             $table->unsignedInteger('curso_id')
-                ->comment('Codigo del curso');
+                ->comment('Código del curso');
 
             $table->text('perfil')
                 ->comment('Perfil de la convocatoria');
@@ -36,10 +36,6 @@ class CreateDetalleConvocatoriasTable extends Migration
                 ->comment('Requisitos de la convocatoria');
 
             $table->timestamps();
-                //->comment('Creacion/Actualizacion del registro');
-
-            $table->softDeletes()
-                ->comment('Eliminacion del registro');
 
             //Foraneas
             $table->foreign('convocatoria_id')->references('id')->on('convocatorias');

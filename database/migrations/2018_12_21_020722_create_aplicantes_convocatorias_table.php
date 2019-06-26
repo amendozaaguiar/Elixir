@@ -15,13 +15,13 @@ class CreateAplicantesConvocatoriasTable extends Migration
     {
         Schema::create('aplicantes_convocatorias', function (Blueprint $table) {
             $table->increments('id')
-                ->comment('Codigo de la aplicacion a la convocatoria');
+                ->comment('Código de la aplicacion a la convocatoria');
 
             $table->unsignedInteger('detalle_convocatoria_id')
-                ->comment('Codigo del detalle la convocatoria');
+                ->comment('Código del detalle la convocatoria');
 
             $table->unsignedInteger('aspirante_id')
-                ->comment('Codigo del aspirante');
+                ->comment('Código del aspirante');
 
             $table->string('hoja_vida')
                 ->comment('Url de la hoja de vida');
@@ -48,12 +48,9 @@ class CreateAplicantesConvocatoriasTable extends Migration
 
             $table->unsignedInteger('usuario_reviso_id')
                 ->nullable()
-                ->comment('Codigo del usuario que reviso los convocados');
+                ->comment('Código del usuario que reviso los convocados');
 
             $table->timestamps();
-
-            $table->softDeletes()
-                ->comment('Eliminacion del registro');
 
             //Foraneas
             $table->foreign('detalle_convocatoria_id')->references('id')->on('detalle_convocatorias');

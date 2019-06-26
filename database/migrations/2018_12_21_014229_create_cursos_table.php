@@ -16,10 +16,10 @@ class CreateCursosTable extends Migration
         Schema::create('cursos', function (Blueprint $table) {
             
             $table->increments('id')
-                ->comment('Codigo del curso');
+                ->comment('Código del curso');
             
             $table->unsignedInteger('programa_id')
-                ->comment('Codigo del programa al que pertenece');
+                ->comment('Código del programa al que pertenece');
             
             $table->string('nombre',50)
                 ->comment('Nombre del curso');
@@ -29,10 +29,6 @@ class CreateCursosTable extends Migration
                 ->comment('Activo');
 
             $table->timestamps();
-                //->comment('Creacion/Actualizacion del registro');
-
-            $table->softDeletes()
-                ->comment('Eliminacion del registro');
             
             //Foraneas
             $table->foreign('programa_id')->references('id')->on('programas');

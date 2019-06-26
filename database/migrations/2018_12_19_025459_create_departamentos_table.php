@@ -15,19 +15,15 @@ class CreateDepartamentosTable extends Migration
     {
         Schema::create('departamentos', function (Blueprint $table) {
             $table->increments('id')
-                ->comment('Codigo del departamento');
+                ->comment('Código del departamento');
 
             $table->string('codigo_divipola',2)
-                ->comment('Codigo divipola del departamento');
+                ->comment('Código divipola del departamento');
 
             $table->string('nombre',25)
                 ->comment('Nombre del departamento');
 
             $table->timestamps();
-                //->comment('Creacion/Actualizacion del registro');
-
-            $table->softDeletes()
-                ->comment('Eliminacion del registro');
         });
     }
 

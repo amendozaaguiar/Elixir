@@ -3,15 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cursos extends Model
 {
-    //Eliminacion logica
-    use SoftDeletes;
-    
+    //Tabla
     protected $table = 'cursos';
 
+    //Campos accesibles
     protected $fillable = [
         'id',
         'programa_id',
@@ -19,6 +17,7 @@ class Cursos extends Model
         'activo'
     ];
 
+    //Programa
     public function programa()
     {
         return $this->hasOne(Programas::class, 'id', 'programa_id');

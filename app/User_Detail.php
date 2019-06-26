@@ -3,15 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User_Detail extends Model
 {
-    //Eliminacion logica
-    use SoftDeletes;
-    
+    //Tabla
     protected $table = 'users_detail';
 
+    //Campos accesibles
     protected $fillable = [
         'user_id', 
         'tipo_documento_id', 
@@ -22,14 +20,15 @@ class User_Detail extends Model
         'segundo_apellido',
     ];
 
-    //Dato principal del usuario
+    //Datos principales del usuario
     public function user()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
     }
 
-    //Tipo de documento
-    function tipoDocumento(){
+    //Tipos de documento
+    function tipoDocumento()
+    {
         return $this->hasOne(TiposDocumento::class, 'id', 'tipo_documento_id');
     }
 
