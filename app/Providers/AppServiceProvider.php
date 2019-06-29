@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,6 +17,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //Tamaño por defecto de string
         Schema::defaultStringLength(191);
+        //Cambiar de enum a string
+        DB::getDoctrineSchemaManager()->getDatabasePlatform()->registerDoctrineTypeMapping('enum', 'string');
     }
 
     /**
