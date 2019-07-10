@@ -240,5 +240,12 @@ class PermissionsTableSeeder extends Seeder
             'description'   => 'Generar reportes de una convocatoria',
         ]);
 
+        /**REPORTES*/
+        Permission::create([
+            'name'          => 'Log de auditoria',
+            'slug'          => 'audits.index',
+            'description'   => 'Puede ver el log de auditoria del sistema',
+        ]);
+
     }
 }

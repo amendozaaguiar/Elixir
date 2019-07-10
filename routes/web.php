@@ -269,4 +269,9 @@ Route::middleware(['auth'])->group(function () {
 		->name('convocatorias.report.three')
 		->middleware('permission:convocatorias.report');
 
+
+	/**RUTA ESPECIAL DE AUDITORIA*/
+	Route::get('audits', 'AuditController@index')
+		->name('audits.index')
+		->middleware('permission:audits.index');
 });
