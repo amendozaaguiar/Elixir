@@ -17,7 +17,7 @@ class CreateUserDetailTable extends Migration
             $table->increments('id')
                 ->comment('Código del detalle del usuario');
 
-            $table->unsignedInteger('user_id')                
+            $table->unsignedBigInteger('user_id')                
                 ->default('1')
                 ->comment('Código de Usuario');
 

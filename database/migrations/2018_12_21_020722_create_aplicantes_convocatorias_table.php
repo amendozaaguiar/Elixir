@@ -20,7 +20,7 @@ class CreateAplicantesConvocatoriasTable extends Migration
             $table->unsignedInteger('detalle_convocatoria_id')
                 ->comment('Código del detalle la convocatoria');
 
-            $table->unsignedInteger('aspirante_id')
+            $table->unsignedBigInteger('aspirante_id')
                 ->comment('Código del aspirante');
 
             $table->string('hoja_vida')
@@ -46,7 +46,7 @@ class CreateAplicantesConvocatoriasTable extends Migration
                 ->nullable()
                 ->comment('Fecha y hora de presentacion de la entrevista');
 
-            $table->unsignedInteger('usuario_reviso_id')
+            $table->unsignedBigInteger('usuario_reviso_id')
                 ->nullable()
                 ->comment('Código del usuario que reviso los convocados');
 
