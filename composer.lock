@@ -1,31 +1,36 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a140c29fe28c01c83bf8a75ac1a71355",
+    "content-hash": "65b2bcdae38591a75ea84306c8d0b59a",
     "packages": [
         {
             "name": "caffeinated/shinobi",
-            "version": "v4.1.0",
+            "version": "v3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/caffeinated/shinobi.git",
-                "reference": "5942ee422faa6b8e3443314afdc6098e9aa44b94"
+                "reference": "2f349811d6846863b84c09b2fecd56952632aa4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/caffeinated/shinobi/zipball/5942ee422faa6b8e3443314afdc6098e9aa44b94",
-                "reference": "5942ee422faa6b8e3443314afdc6098e9aa44b94",
+                "url": "https://api.github.com/repos/caffeinated/shinobi/zipball/2f349811d6846863b84c09b2fecd56952632aa4d",
+                "reference": "2f349811d6846863b84c09b2fecd56952632aa4d",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "5.7.*|5.8.*"
+                "illuminate/config": "5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*",
+                "illuminate/database": "5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*",
+                "illuminate/filesystem": "5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*",
+                "illuminate/support": "5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*",
+                "php": ">=5.6.4"
             },
             "require-dev": {
-                "doctrine/dbal": "^2.10@dev",
-                "orchestra/testbench": "^3.7"
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "^6.4",
+                "squizlabs/php_codesniffer": "3.*"
             },
             "type": "library",
             "extra": {
@@ -53,7 +58,7 @@
                     "email": "shea.lewis89@gmail.com"
                 }
             ],
-            "description": "Laravel Roles and Permissions",
+            "description": "Laravel 5 Roles and Permissions",
             "keywords": [
                 "auth",
                 "caffeinated",
@@ -62,7 +67,7 @@
                 "roles",
                 "shinobi"
             ],
-            "time": "2019-07-03T22:37:33+00:00"
+            "time": "2019-05-21T05:26:33+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
