@@ -39,7 +39,7 @@ class DetalleConvocatorias extends Model implements Auditable
     //CATs
     function cat()
     {
-        return $this->hasOne(CAT::class, 'id', 'cat_id');
+        return $this->hasOne(Cat::class, 'id', 'cat_id');
     }
 
     //Programas
