@@ -4,7 +4,7 @@
 </div>
 <div class="form-group">
 	{{ Form::label('slug', 'URL Amigable') }}
-	{{ Form::text('slug', null, ['class' => 'form-control', 'id' => 'slug']) }}
+	{{ Form::text('slug', 'Default', ['class' => 'form-control', 'id' => 'slug', 'readonly'=>'readonly']) }}
 </div>
 <div class="form-group">
 	{{ Form::label('description', 'Descripción') }}

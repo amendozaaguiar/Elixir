@@ -14,7 +14,8 @@
                     </a>
                     @endcan
                 </div>
-
+                @include('alerts.errors')
+                @include('alerts.info')
                 <div class="card-body">
                     <table class="table table-striped table-hover table-sm">
                         <thead class="thead-dark">

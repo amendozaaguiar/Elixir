@@ -9,7 +9,8 @@
                     Roles
                     @include('layouts.volver')
                 </div>
-
+                @include('alerts.errors')
+                @include('alerts.info')
                 <div class="card-body">                    
                     {!! Form::model($role, ['route' => ['roles.update', $role->id],
                     'method' => 'PUT']) !!}
