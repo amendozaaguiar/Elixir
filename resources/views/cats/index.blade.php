@@ -22,7 +22,7 @@
                             <tr>
                                 <th>id</th>
                                 <th>CAT</th>
-                                <th>Direccion</th>
+                                <th>Dirección</th>
                                 <th>Email</th>
                                 <th>Departamento</th>
                                 <th>Municipio</th>

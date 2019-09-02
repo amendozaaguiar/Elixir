@@ -37,7 +37,7 @@
 <div class="form-group">
 	<div class="row">
 		<div class="col-md-1">
-			{{ Form::label('activo', 'Estado')}}
+			{{ Form::label('activo', 'Activo')}}
 			{{ Form::select('activo', [1=>'Si', 0=>'No'], null,['class' => 'form-control', 'id' => 'activo']) }}
 		</div>
 	</div>

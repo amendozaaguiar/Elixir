@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">All Log</div>
+                <div class="card-header">Log</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -25,7 +25,7 @@
                                     <th>Ruta</th>
                                     <th>Ip address</th>
                                     <th>Agente</th>
-                                    <th>More</th>
+                                    <th>Más</th>
                                 </tr>
                             </thead>
                             <tr>
