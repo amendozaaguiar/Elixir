@@ -27,7 +27,7 @@
                                 <th>Fecha de Inicio</th>
                                 <th>Fecha de Finalización</th>
                                 <th>Estado</th>
-                                <th colspan="5">&nbsp;</th>
+                                <th colspan="6">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
