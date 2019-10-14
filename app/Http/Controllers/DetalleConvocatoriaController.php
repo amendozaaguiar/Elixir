@@ -47,15 +47,20 @@ class DetalleConvocatoriaController extends Controller
         
         //Programas
         $programas = Programas::where('activo', 1)->get();
-        $programa_id = $programas->first()->id;
-        $programas= $programas->pluck('nombre', 'id');
 
-        //Cursos
-        $cursos = Cursos::where(['activo' => 1,'programa_id' => $programa_id])->get();
-        $cursos = $cursos->pluck('nombre', 'id');
-        
+        if($programas->count()>0)
+        {
+            $programa_id = $programas->first()->id;
+            $programas= $programas->pluck('nombre', 'id');
 
-        return view('detalleConvocatorias.create',compact('convocatoria_id','cat','programas','cursos'));
+            //Cursos
+            $cursos = Cursos::where(['activo' => 1,'programa_id' => $programa_id])->get();
+            $cursos = $cursos->pluck('nombre', 'id');
+            
+            return view('detalleConvocatorias.create',compact('convocatoria_id','cat','programas','cursos'));
+        }else{
+             return redirect()->route('detalleConvocatorias.index',compact('convocatoria_id'))->with('info_warning','No se encontraron programas creados, acceso no permitido.');
+        }
     }
 
     /**
