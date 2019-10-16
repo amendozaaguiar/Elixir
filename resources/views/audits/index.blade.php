@@ -30,7 +30,7 @@
                             </thead>
                             <tr>
                                 <td> {{ $audit->id }} </td>
-                                <td> {{ $audit->user->email }} </td>
+                                <td> {{ $audit->user['email'] }} </td>
                                 <td> {{ $audit->event }} </td>
                                 <td> {{ $audit->auditable_type }} </td>
                                 <td> {{ $audit->ip_address }} </td>
@@ -62,6 +62,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $audits->render() }}
                 </div>
             </div>
         </div>
