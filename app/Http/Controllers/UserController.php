@@ -15,6 +15,7 @@ use Caffeinated\Shinobi\Models\Role;
 //Request
 use App\Http\Requests\UserRequest;
 
+
 class UserController extends Controller
 {
     /**
@@ -116,8 +117,19 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, $id)
+    public function update(Request $request, $id)
     {
+
+        $request->validate([
+            'detail.tipo_documento_id' => 'required',
+            'detail.numero_documento' => 'required|min:2',
+            'detail.primer_nombre'     => 'required|min:2|max:25',
+            'detail.primer_apellido'   => 'required|min:2|max:25',
+            'password'          => 'required|min:8',
+            'password_confirm'  => 'required',            
+            'email'             => 'required|email',
+        ]);
+
         
         $user = User::with('detail')->find($id);
             $user->name = $request->name;
