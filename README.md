@@ -17,3 +17,5 @@ Implementar una aplicación web para apoyo al proceso de convocatoria docentes c
  **4.**  Desarrollar una aplicación web para la gestión de la información de los docentes que se postulen a las diferentes convocatorias realzadas por el instituto de educación a distancia de la universidad del Tolima.
  
  **5.**  Realizar la fase de pruebas e implementación con su respectiva documentación hasta el nivel beta para validar y verificar el correcto funcionamiento de la aplicación web
+ 
+ ### Nota: La documentación detallada de este documento se puede encontrar en la carpeta "Documentacion"
