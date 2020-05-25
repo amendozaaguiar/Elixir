@@ -89,4 +89,10 @@ class EvaluacionAspiranteController extends Controller
 
         return redirect()->route('evaluacionesAspirantes.index',$id_convocatoria)->with('info','Se ha actualizado correctamente los datos de la evaluación');
     }
+
+    public function EvaluacionAspirante($id)
+    {
+        $evaluacionAspirante = EvaluacionesAspirantes::where('aplicantes_convocatorias_id', $id)->first();
+        return json_encode($evaluacionAspirante);
+    }
 }

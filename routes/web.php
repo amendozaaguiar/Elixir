@@ -228,7 +228,6 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('municipios/todos/departamento/{id}', 'MunicipioController@getMunicipios')
 		->name('municipios.getMunicipios');
 
-
 	//APLICANTES A CONVOCATORIASCONVOCATORIAS
 	Route::post('aplicantesConvocatorias/store', 'AplicantesConvocatoriaController@store')
 		->name('aplicantesConvocatorias.store')
@@ -256,6 +255,10 @@ Route::middleware(['auth'])->group(function () {
 		->name('evaluacionesAspirantes.update')
 		->middleware('permission:evaluacionesAspirantes.edit');	
 
+	//RUTA ESPECIAL PARA CONSULTAR LOS PUNTAJES DE LA EVALUCION
+	Route::get('evaluacionesAspirantes/aspirante/{id}', 'EvaluacionAspiranteController@EvaluacionAspirante')
+		->name('evaluacionesAspirantes.evaluacionAspirante');
+
 	/**REPORTES*/	
 	Route::get('convocatorias/report/one/{convocatoria}', 'ConvocatoriaController@reportOne')
 		->name('convocatorias.report.one')
@@ -267,8 +270,7 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get('convocatorias/report/three/{convocatoria}', 'ConvocatoriaController@reportThree')
 		->name('convocatorias.report.three')
-		->middleware('permission:convocatorias.report');
-
+		->middleware('permission:convocatorias.report');	
 
 	/**RUTA ESPECIAL DE AUDITORIA*/
 	Route::get('audits', 'AuditController@index')
