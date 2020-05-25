@@ -21,7 +21,7 @@ function calcularTotalHV(){
     total += parseFloat($("#experiencia_docencia_universitaria").val());
     total += parseFloat($("#produccion_intelectual").val());
     total += parseFloat($("#experiencia_profesional").val());
-    total /= 8;
+    //total /= 8;
     $("#total_hoja_vida").val(total.toFixed(2));
 }
 
